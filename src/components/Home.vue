@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import globalAxios from 'axios';
+import api from '../scripts/api';
 
 export default {
   name: 'Home',
@@ -11,10 +11,10 @@ export default {
     notifications: [],
   }),
   created() {
-    globalAxios.get(`http://localhost:3000/avisos`)
-        .then(r => {
-          this.notifications = r.data
-        })
+    api.getNotifications().then(r => {
+      console.log(r)
+      this.notifications = r.data
+    })
   }
 }
 </script>
