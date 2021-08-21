@@ -1,0 +1,14 @@
+{
+  "avisos": [
+    {
+      "id": 1,
+      "title": "Renovación de plaza para el próximo curso",
+      "text": "Recuerda que el viernes 28 es el último día para solicitar la renovación de plaza en las Residencias Universitarias ULPGC para el próximo curso.",
+      "link": "https://www.google.com/"
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
