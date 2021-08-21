@@ -1,24 +1,6 @@
 # alloro_pwa
 
-## Project setup
-```
-npm install
-```
+Aplicación web progresiva dedicada a la gestión de incidencias para la residencia universitaria de Tafira.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Esta aplicación es un TFG realizado por Stefany Martín Socas, tutorizado por Alexis Quesada Arencibia y cotutorizado
+por Jonathan Sebastián Alemán Alemán.
