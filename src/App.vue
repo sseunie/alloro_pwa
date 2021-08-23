@@ -1,20 +1,22 @@
 <template>
-    <Home />
+    <LandingPage />
 </template>
 
 <script>
-import Home from "@/components/Home";
+import LandingPage from "@/components/LandingPage";
 
 export default {
     name: 'App',
     components: {
-        Home,
+        LandingPage,
     }
 }
 </script>
 
 <style>
 #app {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
+    min-height: 60vh;
+    overflow-x: hidden;
 }
 </style>
