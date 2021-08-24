@@ -3,6 +3,9 @@ import './assets/style.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from "@/scripts/router";
 import './registerServiceWorker'
 
-createApp(App).mount('#app')
+createApp(App)
+    .use(router)
+    .mount('#app')

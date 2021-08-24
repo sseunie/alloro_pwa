@@ -6,7 +6,7 @@
             <h6 class="font-300 color-highlight">Residencias Universitarias ULPGC</h6>
             <p class="boxed-text-xl font-14"> Bienvenido a ALLORO, el portal de las residencias universitarias donde podrás
                 encontrar toda la información que necesites.</p>
-            <a href='#' class="back-button btn btn-center-m btn-m bg-highlight rounded-sm font-900 text-uppercase scale-box">Entrar</a>
+            <router-link to="/homepage" class="back-button btn btn-center-m btn-m bg-highlight rounded-sm font-900 text-uppercase scale-box">Entrar</router-link>
         </div>
     </div>
 </template>

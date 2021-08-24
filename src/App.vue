@@ -1,15 +1,10 @@
 <template>
-    <LandingPage />
+    <router-view />
 </template>
 
 <script>
-import LandingPage from "@/components/LandingPage";
-
 export default {
-    name: 'App',
-    components: {
-        LandingPage,
-    }
+    name: 'App'
 }
 </script>
 
