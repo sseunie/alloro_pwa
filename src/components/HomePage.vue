@@ -78,15 +78,18 @@
                 </div>
             </div>
         </router-link>
+
+        <Footer />
     </div>
 </template>
 
 <script>
 import { MDBIcon } from 'mdb-vue-ui-kit';
+import Footer from "@/components/menus/Footer";
 
 export default {
     name: "HomePage",
-    components: { MDBIcon }
+    components: { Footer, MDBIcon }
 }
 </script>
 
