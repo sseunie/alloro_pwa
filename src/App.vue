@@ -1,14 +1,16 @@
 <template>
+    <header-menu />
     <router-view />
     <footer-menu />
 </template>
 
 <script>
 import FooterMenu from "@/components/menus/FooterMenu";
+import HeaderMenu from "@/components/menus/HeaderMenu";
 
 export default {
     name: 'App',
-    components: { FooterMenu }
+    components: { HeaderMenu, FooterMenu }
 }
 </script>
 

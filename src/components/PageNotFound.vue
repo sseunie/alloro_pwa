@@ -1,8 +1,6 @@
 <template>
     <div class="page-content">
-        <div class="page-title page-title-small">
-            <h2><button @click="routerBack" class="back-button"><i class="fa fa-arrow-left"></i></button>Error 404</h2>
-        </div>
+        <div class="page-title page-title-small" style="padding-bottom: 35px;"></div>
         <div class="card header-card shape-rounded" style="height: 150px;">
             <div class="card-overlay bg-highlight opacity-95"></div>
             <div class="card-overlay dark-mode-tint"></div>
@@ -27,17 +25,9 @@
 
 <script>
 export default {
-    name: "PageNotFound",
-    methods: {
-        routerBack() {
-            this.$router.back();
-        }
-    }
+    name: "PageNotFound"
 }
 </script>
 
 <style scoped>
-.back-button {
-    padding-right: 20px;
-}
 </style>

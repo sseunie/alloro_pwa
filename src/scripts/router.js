@@ -5,8 +5,8 @@ import PageNotFound from "@/components/PageNotFound";
 
 const routes = [
     { path: '/', component: LandingPage },
-    { path: '/homepage', component: HomePage },
-    { path: '/:pathMatch(.*)*', component: PageNotFound }
+    { path: '/homepage', component: HomePage, name: 'ALLORO' },
+    { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 
 const router = createRouter({

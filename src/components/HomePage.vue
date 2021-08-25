@@ -1,13 +1,10 @@
 <template>
     <div class="page-content">
-        <div class="page-title page-title-small">
-            <h2>ALLORO</h2>
-        </div>
+        <div class="page-title page-title-small" style="padding-bottom: 35px;"></div>
         <div class="card header-card shape-rounded" style="height: 150px;">
             <div class="card-overlay bg-highlight opacity-95"></div>
             <div class="card-overlay dark-mode-tint"></div>
         </div>
-
 
         <router-link to="/incidents" class="card card-style mb-3 d-flex" style="height: 100px;">
             <div class="d-flex justify-content-between">
