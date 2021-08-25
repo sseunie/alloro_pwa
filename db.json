@@ -1,14 +1,38 @@
 {
-  "avisos": [
+  "notifications": [
     {
       "id": 1,
       "title": "Renovación de plaza para el próximo curso",
       "text": "Recuerda que el viernes 28 es el último día para solicitar la renovación de plaza en las Residencias Universitarias ULPGC para el próximo curso.",
-      "link": "https://www.google.com/"
+      "url": "https://www.google.com/"
+    },
+    {
+      "id": 2,
+      "title": "Aviso de abandono",
+      "text": "Si no lo has hecho, recuerda que mañana es el último día para rellenar tu aviso de abandono. Gracias por colaborar.",
+      "url": "https://www.google.com/"
+    },
+    {
+      "id": 3,
+      "title": "Encuestas de evaluación",
+      "text": "Hemos enviado a tu correo el enlace a la encuesta de evaluación de los servicios de las Residencias Universitarias ULPG, rogamos tu colaboración."
+    },
+    {
+      "id": 4,
+      "title": "Aviso de abandono",
+      "text": "Si aún no lo has hecho, recuerda realizar tu aviso de abandono de las residencias antes del 28 de mayo a través del área privada."
+    },
+    {
+      "id": 5,
+      "title": "Abierta convocatoria renovación de plazas",
+      "text": "El plazo para solicitar la renovación de plazas en las Residencias Universitarias ULPGC para el curso 21/22 es del 14 al 28 de mayo.",
+      "url": "https://www.google.com/"
+    },
+    {
+      "id": 6,
+      "title": "Procedimiento final de curso",
+      "text": "Adjuntamos información importante sobre el procedimiento de salida de las Residencias Universitarias ULPGC.",
+      "url": "https://www.google.com/"
     }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  ]
 }
