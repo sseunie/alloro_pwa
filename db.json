@@ -34,5 +34,33 @@
       "text": "Adjuntamos información importante sobre el procedimiento de salida de las Residencias Universitarias ULPGC.",
       "url": "https://www.google.com/"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Stefany",
+      "surname1": "Martin",
+      "surname2": "Socas",
+      "phoneNumber": "123456789",
+      "email": "stefany@correo.es",
+      "building": "EI",
+      "room": "311",
+      "buildingName": "Edificio Inventado",
+      "residenceChannel": "1",
+      "role": "CL"
+    },
+    {
+      "id": 2,
+      "name": "María",
+      "surname1": "Hernández",
+      "surname2": "Cabrera",
+      "phoneNumber": "987654321",
+      "email": "maria@correo.es",
+      "building": "EI",
+      "room": "280",
+      "buildingName": "Edificio Inventado",
+      "residenceChannel": "1",
+      "role": "CL"
+    }
   ]
 }
