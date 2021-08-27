@@ -79,12 +79,11 @@ export default {
     }),
     computed: {
         userSurname() {
-            console.log('hhhh')
             return `${this.user.surname1} ${this.user.surname2}`
         }
     },
     created() {
-        api.getUser(1).then(r => {
+        api.getUser(localStorage.getItem('userid')).then(r => {
             this.user = r.data
         })
     }

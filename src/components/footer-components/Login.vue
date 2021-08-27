@@ -53,6 +53,7 @@ export default {
             api.login(this.username, this.password)
                 .then(r => {
                     localStorage.setItem('token', r.data.token);
+                    localStorage.setItem('userid', r.data.id)
                     if (this.$route.params.nextRoute === undefined) {
                         this.$router.push('/homepage')
                     } else {
