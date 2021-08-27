@@ -8,9 +8,11 @@ export default {
     },
 
     getUser(id) {
-        return globalAxios.get(`${API_URL}/users/${id}`, {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        });
+        return globalAxios.get(`${API_URL}/users/${id}`, config());
+    },
+
+    updateUser(id, data) {
+        return globalAxios.patch(`${API_URL}/users/${id}`, data, config())
     },
 
     login(username, password) {
@@ -19,4 +21,10 @@ export default {
         params.append('password', password);
         return globalAxios.post(`${API_URL}/login`, params);
     }
+}
+
+function config() {
+    return {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+    };
 }

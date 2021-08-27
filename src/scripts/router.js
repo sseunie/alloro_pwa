@@ -4,7 +4,7 @@ import HomePage from "@/components/HomePage";
 import PageNotFound from "@/components/PageNotFound";
 import Notifications from "@/components/footer-components/Notifications";
 import Profile from "@/components/footer-components/Profile";
-import Login from "@/components/footer-components/Login";
+import Login from "@/components/Login";
 
 const routes = [
     { path: '/', component: LandingPage },
