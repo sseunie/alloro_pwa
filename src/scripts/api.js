@@ -8,7 +8,9 @@ export default {
     },
 
     getUser(id) {
-        return globalAxios.get(`${API_URL}/users/${id}`);
+        return globalAxios.get(`${API_URL}/users/${id}`, {
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+        });
     },
 
     login(username, password) {
