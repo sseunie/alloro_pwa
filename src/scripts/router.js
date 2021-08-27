@@ -5,6 +5,7 @@ import PageNotFound from "@/components/PageNotFound";
 import Notifications from "@/components/footer-components/Notifications";
 import Profile from "@/components/footer-components/Profile";
 import Login from "@/components/Login";
+import Settings from "@/components/footer-components/Settings";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -12,6 +13,7 @@ const routes = [
     { path: '/notifications', component: Notifications, name: 'Avisos' },
     { path: '/profile', component: Profile, name: 'Perfil' },
     { path: '/login', component: Login, name: 'Iniciar sesión' },
+    { path: '/settings', component: Settings, name: 'Ajustes' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 
