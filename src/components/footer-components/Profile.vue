@@ -65,7 +65,11 @@
             </div>
         </div>
 
-        <button id="logout" class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mb-2">Cerrar sesión</button>
+        <button
+            @click="logout"
+            id="logout"
+            class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mb-2"
+        >Cerrar sesión</button>
     </div>
 </template>
 
@@ -79,12 +83,19 @@ export default {
     }),
     computed: {
         userSurname() {
-            return `${this.user.surname1} ${this.user.surname2}`
+            return `${this.user.surname1} ${this.user.surname2}`;
+        }
+    },
+    methods: {
+        logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userid');
+            this.$router.push('/homepage');
         }
     },
     created() {
         api.getUser(localStorage.getItem('userid')).then(r => {
-            this.user = r.data
+            this.user = r.data;
         })
     }
 }
