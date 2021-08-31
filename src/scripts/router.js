@@ -8,6 +8,8 @@ import Login from "@/components/Login";
 import Settings from "@/components/footer-components/Settings";
 import Information from "@/components/home-components/Information";
 import Services from "@/components/home-components/Services";
+import ResidencesInformation from "@/components/home-components/ResidencesInformation";
+import IMPInformation from "@/components/home-components/IMPInformation";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -18,6 +20,8 @@ const routes = [
     { path: '/settings', component: Settings, name: 'Ajustes' },
     { path: '/info', component: Information, name: 'Información' },
     { path: '/services', component: Services, name: 'Servicios' },
+    { path: '/services/residences', component: ResidencesInformation, name: 'Residencias' },
+    { path: '/services/imp', component: IMPInformation, name: 'IMP' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 
