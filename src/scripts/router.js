@@ -10,6 +10,7 @@ import Information from "@/components/home-components/Information";
 import Services from "@/components/home-components/Services";
 import ResidencesInformation from "@/components/home-components/ResidencesInformation";
 import IMPInformation from "@/components/home-components/IMPInformation";
+import Incidences from "@/components/home-components/Incidences";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -22,6 +23,7 @@ const routes = [
     { path: '/services', component: Services, name: 'Servicios' },
     { path: '/services/residences', component: ResidencesInformation, name: 'Residencias' },
     { path: '/services/imp', component: IMPInformation, name: 'IMP' },
+    { path: '/incidences', component: Incidences, name: 'Incidencias' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 

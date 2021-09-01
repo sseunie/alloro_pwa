@@ -6,7 +6,7 @@
             <div class="card-overlay dark-mode-tint"></div>
         </div>
 
-        <router-link to="/incidents" class="card card-style mb-3 d-flex" style="height: 100px;">
+        <router-link to="/incidences" class="card card-style mb-3 d-flex" style="height: 100px;">
             <div class="d-flex justify-content-between">
                 <div class="ps-3 ms-1 align-self-center">
                     <h4 class="font-600 mb-0 pt-4 mt-1">Incidencias</h4>

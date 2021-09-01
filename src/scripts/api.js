@@ -20,6 +20,18 @@ export default {
         params.append('username', username);
         params.append('password', password);
         return globalAxios.post(`${API_URL}/login`, params);
+    },
+
+    getResidences() {
+        return globalAxios.get(`${API_URL}/residences`);
+    },
+
+    getIncidenceAreas() {
+        return globalAxios.get(`${API_URL}/incidenceAreas`);
+    },
+
+    createIncidence(data) {
+        return globalAxios.post(`${API_URL}/incidences`, data, config())
     }
 }
 

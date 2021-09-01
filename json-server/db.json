@@ -62,5 +62,77 @@
       "residenceChannel": "1",
       "role": "CL"
     }
+  ],
+  "residences": [
+    {
+      "id": 1,
+      "name": "Residencia Campus de Tafira"
+    },
+    {
+      "id": 2,
+      "name": "Apartamentos Campus de Tafira"
+    },
+    {
+      "id": 3,
+      "name": "Residencia Las Palmas"
+    },
+    {
+      "id": 4,
+      "name": "Bungalows"
+    }
+  ],
+  "incidenceAreas": [
+    {
+      "id": 1,
+      "name": "Lavandería"
+    },
+    {
+      "id": 2,
+      "name": "Comedor"
+    },
+    {
+      "id": 3,
+      "name": "Recepción"
+    },
+    {
+      "id": 4,
+      "name": "Mantenimiento"
+    },
+    {
+      "id": 5,
+      "name": "Limpieza"
+    },
+    {
+      "id": 6,
+      "name": "Comunicaciones"
+    },
+    {
+      "id": 7,
+      "name": "Equipamiento/Infraestructuras"
+    },
+    {
+      "id": 8,
+      "name": "Administración"
+    },
+    {
+      "id": 9,
+      "name": "Ruidos"
+    }
+  ],
+  "incidences": [
+    {
+      "residence": 2,
+      "area": 3,
+      "subject": "Rata",
+      "message": "Hay una rata circulando libremente por mi estancia. SOS",
+      "id": 1
+    },
+    {
+      "residence": 3,
+      "area": 2,
+      "subject": "Un caracol en la comida",
+      "message": "Habia un caracol derrapando por la lechuga",
+      "id": 2
+    }
   ]
 }
