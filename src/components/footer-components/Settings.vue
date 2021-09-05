@@ -1,45 +1,37 @@
 <template>
-    <div class="page-content">
-        <div class="page-title page-title-small" style="padding-bottom: 35px;"></div>
-        <div class="card header-card shape-rounded" style="height: 150px;">
-            <div class="card-overlay bg-highlight opacity-95"></div>
-            <div class="card-overlay dark-mode-tint"></div>
-        </div>
+    <div class="card card-style">
+        <div class="content mb-3">
+            <h3 class="font-600">Ajustes de la aplicación</h3>
 
-        <div class="card card-style">
-            <div class="content mb-3">
-                <h3 class="font-600">Ajustes de la aplicación</h3>
-
-                <div class="list-group list-custom-small">
-                    <div>
-                        <span>Notificaciones</span>
-                        <div class="custom-control scale-switch ios-switch">
-                            <input type="checkbox" class="ios-input" id="switch-1" checked>
-                            <label class="custom-control-label" for="switch-1"></label>
-                        </div>
+            <div class="list-group list-custom-small">
+                <div>
+                    <span>Notificaciones</span>
+                    <div class="custom-control scale-switch ios-switch">
+                        <input type="checkbox" class="ios-input" id="switch-1" checked>
+                        <label class="custom-control-label" for="switch-1"></label>
                     </div>
-                    <div>
-                        <span>Newsletter</span>
-                        <div class="custom-control scale-switch ios-switch">
-                            <input type="checkbox" class="ios-input" id="switch-2">
-                            <label class="custom-control-label" for="switch-2"></label>
-                        </div>
-                    </div>
-                    <div class="border-0">
-                        <span>Modo noche</span>
-                        <div class="ms-auto me-4 pe-2">
-                            <div class="custom-control ios-switch scale-switch">
-                                <input type="checkbox" class="ios-input" id="toggle-dark12">
-                                <label class="custom-control-label" for="toggle-dark12"></label>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+                <div>
+                    <span>Newsletter</span>
+                    <div class="custom-control scale-switch ios-switch">
+                        <input type="checkbox" class="ios-input" id="switch-2">
+                        <label class="custom-control-label" for="switch-2"></label>
+                    </div>
+                </div>
+                <div class="border-0">
+                    <span>Modo noche</span>
+                    <div class="ms-auto me-4 pe-2">
+                        <div class="custom-control ios-switch scale-switch">
+                            <input type="checkbox" class="ios-input" id="toggle-dark12">
+                            <label class="custom-control-label" for="toggle-dark12"></label>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <Footer />
     </div>
+    <Footer />
 </template>
 
 <script>

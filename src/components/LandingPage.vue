@@ -1,5 +1,5 @@
 <template>
-    <div class="page-content pb-5">
+    <div class="pb-5">
         <div class="mt-5 text-center">
             <img src="../assets/alloro.png" class="img-fluid my-5" alt="ALLORO"/>
             <h1 class="fa-3x color-theme font-900">ALLORO</h1>
