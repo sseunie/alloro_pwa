@@ -32,6 +32,10 @@ export default {
 
     createIncidence(data) {
         return globalAxios.post(`${API_URL}/incidences`, data, config())
+    },
+
+    createAbsence(data) {
+        return globalAxios.post(`${API_URL}/absences`, data, config())
     }
 }
 

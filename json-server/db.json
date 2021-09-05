@@ -126,8 +126,7 @@
       "subject": "Rata",
       "message": "Hay una rata circulando libremente por mi estancia. SOS",
       "id": 1,
-      "date": "2021-09-01T12:51:28.640Z",
-      "userId": "1"
+      "userId": 1
     },
     {
       "residence": 3,
@@ -135,8 +134,7 @@
       "subject": "Un caracol en la comida",
       "message": "Habia un caracol derrapando por la lechuga",
       "id": 2,
-      "date": "2021-09-01T20:23:13.120Z",
-      "userId": "1"
+      "userId": 1
     },
     {
       "residence": 3,
@@ -146,6 +144,22 @@
       "userId": "1",
       "date": "2021-09-05T16:58:29.640Z",
       "id": 3
+    }
+  ],
+  "absences": [
+    {
+      "id": 1,
+      "userId": "1",
+      "startDate": "2020-04-09T00:00:00.000Z",
+      "finishDate": "2020-04-11T00:00:00.000Z",
+      "observations": "Nada más que decir."
+    },
+    {
+      "startDate": "2021-09-09T00:00:00.000Z",
+      "finishDate": "2021-09-12T00:00:00.000Z",
+      "observations": "Me voy de vacaciones",
+      "userId": "1",
+      "id": 2
     }
   ]
 }
