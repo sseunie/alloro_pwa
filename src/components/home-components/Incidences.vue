@@ -128,7 +128,9 @@ export default {
                     residence: this.selectedResidence,
                     area: this.selectedArea,
                     subject: this.subject,
-                    message: this.body
+                    message: this.body,
+                    userId: localStorage.getItem('userid'),
+                    date: new Date()
                 }).then(() => {
                     this.success = true
                 })

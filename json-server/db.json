@@ -125,14 +125,27 @@
       "area": 3,
       "subject": "Rata",
       "message": "Hay una rata circulando libremente por mi estancia. SOS",
-      "id": 1
+      "id": 1,
+      "date": "2021-09-01T12:51:28.640Z",
+      "userId": "1"
     },
     {
       "residence": 3,
       "area": 2,
       "subject": "Un caracol en la comida",
       "message": "Habia un caracol derrapando por la lechuga",
-      "id": 2
+      "id": 2,
+      "date": "2021-09-01T20:23:13.120Z",
+      "userId": "1"
+    },
+    {
+      "residence": 3,
+      "area": 3,
+      "subject": "Hay una gotera",
+      "message": "El suelo está inundado!",
+      "userId": "1",
+      "date": "2021-09-05T16:58:29.640Z",
+      "id": 3
     }
   ]
 }
