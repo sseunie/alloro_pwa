@@ -32,7 +32,7 @@ const router = createRouter({
     routes
 });
 
-const forbiddenRoutes = ['/profile'];
+const forbiddenRoutes = ['/profile', '/incidences', '/absences', '/messages'];
 
 router.beforeEach((to, from, next) => {
     if (forbiddenRoutes.includes(to.path) && localStorage.getItem('token') == null) {
