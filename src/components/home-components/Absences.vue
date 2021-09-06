@@ -1,7 +1,7 @@
 <template>
     <AbsencesForm />
     <div
-        v-for="absence in absences.sort(compareDates)"
+        v-for="absence in absences"
         :key="absence.id"
         class="card card-style my-3">
         <div class="content">
@@ -47,16 +47,6 @@ export default {
             const fullDate = new Date(date)
             const month = months[fullDate.getMonth()]
             return `${fullDate.getDate()} de ${month}, ${fullDate.getFullYear()}.`
-        },
-
-        compareDates(a, b) {
-            if ( a.createdDate > b.createdDate ){
-                return -1
-            }
-            if ( a.createdDate < b.createdDate ){
-                return 1
-            }
-            return 0
         }
     }
 }
