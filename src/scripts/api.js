@@ -36,6 +36,10 @@ export default {
 
     createAbsence(data) {
         return globalAxios.post(`${API_URL}/absences`, data, config())
+    },
+
+    getAbsences() {
+        return globalAxios.get(`${API_URL}/absences`, config())
     }
 }
 

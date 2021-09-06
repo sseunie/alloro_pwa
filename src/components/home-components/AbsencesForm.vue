@@ -1,39 +1,49 @@
 <template>
     <div class="card card-style">
         <div class="content mb-0">
-            <h3>Reportar nueva ausencia</h3>
-            <p>
-            </p>
+            <h3>Gestión de ausencias</h3>
+            <p>Puedes comprobar las ausencias programadas y añadir nuevas.</p>
 
-            <div class="input-style has-borders no-icon mb-4">
-                <label for="startDate" class="color-highlight">Salida</label>
-                <input v-model="startDate" type="date" :max="maxDate" :min="today" class="form-control" id="startDate">
+            <div v-if="!showForm">
+                <button
+                    @click="showForm = true"
+                    class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto my-4 btn-send"
+                >Nueva ausencia</button>
             </div>
 
-            <div v-if="startDate" class="input-style has-borders no-icon mb-4">
-                <label for="finishDate" class="color-highlight">Vuelta</label>
-                <input v-model="finishDate" type="date" :max="maxDate" :min="startDate" class="form-control" id="finishDate">
+
+            <div v-if="showForm">
+                <div class="input-style has-borders no-icon mb-4">
+                    <label for="startDate" class="color-highlight">Salida</label>
+                    <input v-model="startDate" type="date" :max="maxDate" :min="today" class="form-control" id="startDate">
+                </div>
+
+                <div v-if="startDate" class="input-style has-borders no-icon mb-4">
+                    <label for="finishDate" class="color-highlight">Vuelta</label>
+                    <input v-model="finishDate" type="date" :max="maxDate" :min="startDate" class="form-control" id="finishDate">
+                </div>
+
+                <div class="input-style has-borders no-icon" style="margin-bottom: 5px !important;">
+                    <label for="observations" class="color-highlight">Observaciones</label>
+                    <textarea
+                        v-model="body"
+                        :class="bodyLength > 100 && 'red-border'"
+                        id="observations"
+                        placeholder="Escribe aquí tu mensaje..."></textarea>
+                </div>
+                <p class="char-counter" :class="bodyLength > 100 && 'color-red-dark'">{{ bodyLength }}/100</p>
+
+                <p v-if="generalError" class="color-red-dark text-center my-2">Debes seleccionar las fechas de salida y vuelta</p>
+                <p v-if="dateError" class="color-red-dark text-center my-2">La fecha de vuelta no puede ser igual o anterior a la de salida</p>
+                <p v-if="textareaError" class="color-red-dark text-center my-2">Las observaciones no pueden sobrepasar los 100 caracteres</p>
+
+                <button
+                    @click="send"
+                    class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto my-4 btn-send"
+                >Enviar</button>
             </div>
 
-            <div class="input-style has-borders no-icon" style="margin-bottom: 5px !important;">
-                <label for="observations" class="color-highlight">Observaciones</label>
-                <textarea
-                    v-model="body"
-                    :class="bodyLength > 100 && 'red-border'"
-                    id="observations"
-                    placeholder="Escribe aquí tu mensaje..."></textarea>
-            </div>
-            <p class="char-counter" :class="bodyLength > 100 && 'color-red-dark'">{{ bodyLength }}/100</p>
         </div>
-
-        <p v-if="generalError" class="color-red-dark text-center my-2">Debes seleccionar las fechas de salida y vuelta</p>
-        <p v-if="dateError" class="color-red-dark text-center my-2">La fecha de vuelta no puede ser igual o anterior a la de salida</p>
-        <p v-if="textareaError" class="color-red-dark text-center my-2">Las observaciones no pueden sobrepasar los 100 caracteres</p>
-
-        <button
-            @click="send"
-            class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto mb-4 btn-send"
-        >Enviar</button>
     </div>
 
     <div
@@ -65,6 +75,7 @@ const day = date.getDate()
 export default {
     name: "AbsencesForm",
     data: () => ({
+        showForm: false,
         startDate: null,
         finishDate: null,
         body: '',
@@ -107,9 +118,11 @@ export default {
                     startDate: new Date(this.startDate),
                     finishDate: new Date(this.finishDate),
                     observations: this.body,
-                    userId: localStorage.getItem('userid')
+                    userId: localStorage.getItem('userid'),
+                    createdDate: new Date()
                 }).then(() => {
                     this.success = true
+                    this.showForm = false
                 })
             }
         }
