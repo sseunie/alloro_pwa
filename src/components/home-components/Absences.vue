@@ -5,7 +5,7 @@
         :key="absence.id"
         class="card card-style my-3">
         <div class="content">
-            <div class="float-start mb-3 fecha-salida">
+            <div class="float-start mb-3 finish-date">
                 <h3 class="font-600 mb-n1">Fecha salida:</h3>
                 <h4 class="font-400 font-13 mb-n1 my-3"><i class="far fa-calendar"></i>{{ getDate(absence.startDate) }}</h4>
             </div>
@@ -21,7 +21,6 @@
 <script>
 
 import AbsencesForm from "@/components/home-components/AbsencesForm";
-import api from "@/scripts/api";
 
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
@@ -30,19 +29,22 @@ export default {
     name: "Absences",
     components: {AbsencesForm},
     data: () => ({
-        absences: [],
         dateStart: '',
         dateFinish: '',
     }),
+    computed: {
+        absences() {
+            return this.$store.getters.absences
+        }
+    },
     created() {
-        api.getAbsences().then(r => {
-            this.absences = r.data
-        })
+        if (this.$store.getters.absences.length === 0) {
+            this.$store.dispatch('getAbsences')
+        }
     },
     methods: {
         getDate(date) {
             const fullDate = new Date(date)
-            console.log(fullDate)
             const month = months[fullDate.getMonth()]
             return `${fullDate.getDate()} de ${month}, ${fullDate.getFullYear()}.`
         },
@@ -61,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-.fecha-salida {
+.finish-date {
     margin-right: 20px !important;
 }
 
