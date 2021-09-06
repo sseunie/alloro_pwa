@@ -65,8 +65,6 @@
 </template>
 
 <script>
-import api from "@/scripts/api";
-
 const date = new Date()
 const year = date.getFullYear()
 const month = date.getMonth() + 1
@@ -114,12 +112,12 @@ export default {
                 this.generalError = false
                 this.dateError = false
                 this.textareaError = false
-                api.createAbsence({
+                this.$store.dispatch('createAbsence', {
                     startDate: new Date(this.startDate),
                     finishDate: new Date(this.finishDate),
                     observations: this.body,
                     userId: localStorage.getItem('userid'),
-                    createdDate: new Date()
+                    createdAt: Date.now()
                 }).then(() => {
                     this.success = true
                     this.showForm = false
