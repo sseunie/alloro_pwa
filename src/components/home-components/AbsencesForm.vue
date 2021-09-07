@@ -117,7 +117,7 @@ export default {
                     finishDate: new Date(this.finishDate),
                     observations: this.body,
                     userId: localStorage.getItem('userid'),
-                    createdAt: Date.now()
+                    createdAt: new Date()
                 }).then(() => {
                     this.success = true
                     this.showForm = false

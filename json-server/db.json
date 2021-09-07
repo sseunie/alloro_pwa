@@ -148,27 +148,27 @@
   ],
   "absences": [
     {
-      "startDate": "2021-09-09T00:00:00.000Z",
-      "finishDate": "2021-09-10T00:00:00.000Z",
-      "observations": "Urgencia médica",
+      "startDate": "2021-09-11T00:00:00.000Z",
+      "finishDate": "2021-09-12T00:00:00.000Z",
+      "observations": "Vacaciones",
       "userId": "1",
-      "createdAt": 1630949851328,
+      "createdAt": "2021-09-07T16:42:38.630Z",
       "id": 1
     },
     {
-      "startDate": "2021-09-17T00:00:00.000Z",
-      "finishDate": "2021-09-25T00:00:00.000Z",
-      "observations": "Vacaciones",
+      "startDate": "2021-09-16T00:00:00.000Z",
+      "finishDate": "2021-09-18T00:00:00.000Z",
+      "observations": "Urgencia médica",
       "userId": "1",
-      "createdAt": 1630949877100,
+      "createdAt": "2021-09-07T16:42:52.377Z",
       "id": 2
     },
     {
-      "startDate": "2021-10-30T00:00:00.000Z",
-      "finishDate": "2021-11-02T00:00:00.000Z",
-      "observations": "Otras vacaciones",
+      "startDate": "2021-09-11T00:00:00.000Z",
+      "finishDate": "2021-09-12T00:00:00.000Z",
+      "observations": "Nueva urgencia",
       "userId": "1",
-      "createdAt": 1630949958290,
+      "createdAt": "2021-09-07T16:43:15.267Z",
       "id": 3
     }
   ]
