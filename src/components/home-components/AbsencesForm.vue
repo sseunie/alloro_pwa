@@ -121,6 +121,9 @@ export default {
                 }).then(() => {
                     this.success = true
                     this.showForm = false
+                    this.body = ''
+                    this.startDate = null
+                    this.finishDate = null
                 })
             }
         }
