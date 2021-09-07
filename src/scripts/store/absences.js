@@ -23,6 +23,7 @@ export default {
                 .then(() => {
                     commit('pushAbsence', data)
                 })
-        }
+        },
+        clearAbsences: ({commit}) => commit('setAbsences', [])
     }
 }

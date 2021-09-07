@@ -90,6 +90,8 @@ export default {
             localStorage.removeItem('token');
             localStorage.removeItem('userid');
             this.$router.push('/homepage');
+            this.$store.dispatch('clearIncidences');
+            this.$store.dispatch('clearAbsences');
         },
         updateUserData() {
             api.updateUser(this.user.id, {

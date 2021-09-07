@@ -126,7 +126,8 @@
       "subject": "Rata",
       "message": "Hay una rata circulando libremente por mi estancia. SOS",
       "id": 1,
-      "userId": 1
+      "createdAt": "2021-09-02T16:58:29.640Z",
+      "userId": "1"
     },
     {
       "residence": 3,
@@ -134,7 +135,8 @@
       "subject": "Un caracol en la comida",
       "message": "Habia un caracol derrapando por la lechuga",
       "id": 2,
-      "userId": 1
+      "createdAt": "2021-09-04T19:58:29.640Z",
+      "userId": "1"
     },
     {
       "residence": 3,
@@ -142,8 +144,16 @@
       "subject": "Hay una gotera",
       "message": "El suelo está inundado!",
       "userId": "1",
-      "date": "2021-09-05T16:58:29.640Z",
+      "createdAt": "2021-09-05T16:58:29.640Z",
       "id": 3
+    },
+    {
+      "startDate": "2021-09-10T00:00:00.000Z",
+      "finishDate": "2021-09-24T00:00:00.000Z",
+      "observations": "Necesito vacaciones",
+      "userId": "2",
+      "createdAt": "2021-09-07T17:22:16.145Z",
+      "id": 4
     }
   ],
   "absences": [
@@ -170,6 +180,30 @@
       "userId": "1",
       "createdAt": "2021-09-07T16:43:15.267Z",
       "id": 3
+    },
+    {
+      "startDate": "2021-09-09T00:00:00.000Z",
+      "finishDate": "2021-09-29T00:00:00.000Z",
+      "observations": "ALGO",
+      "userId": "1",
+      "createdAt": "2021-09-07T16:44:39.935Z",
+      "id": 4
+    },
+    {
+      "startDate": "2021-09-17T00:00:00.000Z",
+      "finishDate": "2021-09-19T00:00:00.000Z",
+      "observations": "x",
+      "userId": "1",
+      "createdAt": "2021-09-07T16:45:19.595Z",
+      "id": 5
+    },
+    {
+      "startDate": "2021-09-10T00:00:00.000Z",
+      "finishDate": "2021-09-24T00:00:00.000Z",
+      "observations": "Necesito vacaciones",
+      "userId": "2",
+      "createdAt": "2021-09-07T17:22:16.145Z",
+      "id": 6
     }
   ]
 }

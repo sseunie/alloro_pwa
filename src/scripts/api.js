@@ -39,7 +39,11 @@ export default {
     },
 
     getAbsences() {
-        return globalAxios.get(`${API_URL}/absences`, config())
+        return globalAxios.get(`${API_URL}/absences?userId=${localStorage.getItem('userid')}`, config())
+    },
+
+    getIncidences() {
+        return globalAxios.get(`${API_URL}/incidences?userId=${localStorage.getItem('userid')}`, config())
     }
 }
 

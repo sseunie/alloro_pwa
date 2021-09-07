@@ -122,7 +122,7 @@ export default {
                     subject: this.subject,
                     message: this.body,
                     userId: localStorage.getItem('userid'),
-                    date: new Date()
+                    createdAt: new Date()
                 }).then(() => {
                     this.success = true
                 })
