@@ -144,16 +144,17 @@
       "subject": "Hay una gotera",
       "message": "El suelo está inundado!",
       "userId": "1",
-      "createdAt": "2021-09-05T16:58:29.640Z",
+      "createdAt": "2021-09-06T12:10:43.595Z",
       "id": 3
     },
     {
-      "startDate": "2021-09-10T00:00:00.000Z",
-      "finishDate": "2021-09-24T00:00:00.000Z",
-      "observations": "Necesito vacaciones",
-      "userId": "2",
-      "createdAt": "2021-09-07T17:22:16.145Z",
-      "id": 4
+      "residence": 4,
+      "area": 2,
+      "subject": "Queja nueva",
+      "message": "Pues tengo una queja y la queja es:",
+      "userId": "1",
+      "createdAt": "2021-09-07T19:10:43.595Z",
+      "id": 5
     }
   ],
   "absences": [

@@ -18,7 +18,7 @@ export default {
                 commit('setIncidences', r.data)
             })
         },
-        createAbsence: ({commit}, data) => {
+        createIncidence: ({commit}, data) => {
             api.createIncidence(data)
                 .then(() => {
                     commit('pushIncidence', data)
