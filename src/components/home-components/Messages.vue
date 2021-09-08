@@ -12,13 +12,15 @@
 
             <div class="d-flex justify-content-between">
                 <p>Preview del último mensaje</p>
-                <p>{{ format(incidence.createdAt) }}</p>
+                <p>{{ date(incidence) }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import utils from "@/scripts/utils";
+
 export default {
     name: "Messages",
     computed: {
@@ -27,18 +29,8 @@ export default {
         }
     },
     methods: {
-        format(givenDate) {
-            const fullDate = new Date(givenDate)
-            const date = `${fullDate.getDate()}/${fullDate.getMonth()}/${fullDate.getFullYear()}`
-            const time = `${fullDate.getHours()}:${fullDate.getMinutes()}`
-
-            const currentDate = new Date()
-            const timeDifference = currentDate.getTime() - fullDate.getTime();
-            const daysDifference = timeDifference / (1000 * 3600 * 24);
-
-            if (daysDifference < 1) return time
-            else if (daysDifference < 2) return 'Ayer'
-            else return date
+        date(incidence) {
+            return utils.formatDate(incidence.createdAt)
         }
     },
     created() {
