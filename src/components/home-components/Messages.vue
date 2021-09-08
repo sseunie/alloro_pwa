@@ -11,7 +11,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <p>Preview del último mensaje</p>
+                <p class="message-preview">{{ incidence.message }}</p>
                 <p>{{ date(incidence) }}</p>
             </div>
         </div>
@@ -57,5 +57,11 @@ i.unread {
     font-size: 20px;
     margin-right: 5px;
     color: #4A89DC;
+}
+p.message-preview {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 </style>
