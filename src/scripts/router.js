@@ -5,20 +5,22 @@ import PageNotFound from "@/components/PageNotFound";
 import Notifications from "@/components/footer-components/Notifications";
 import Profile from "@/components/footer-components/Profile";
 import Login from "@/components/Login";
-import Settings from "@/components/footer-components/Settings";
+import Settings from "@/components/home-components/Settings";
 import Information from "@/components/home-components/Information";
 import Services from "@/components/home-components/Services";
 import ResidencesInformation from "@/components/home-components/ResidencesInformation";
 import IMPInformation from "@/components/home-components/IMPInformation";
 import Incidences from "@/components/home-components/Incidences";
 import Absences from "@/components/home-components/Absences";
-import Messages from "@/components/home-components/Messages";
-import MessagesDetails from "@/components/home-components/MessagesDetails";
+import Messages from "@/components/footer-components/Messages";
+import MessagesDetails from "@/components/footer-components/MessagesDetails";
+import NotificationDetails from "@/components/footer-components/NotificationDetails";
 
 const routes = [
     { path: '/', component: LandingPage },
     { path: '/homepage', component: HomePage, name: 'ALLORO' },
     { path: '/notifications', component: Notifications, name: 'Avisos' },
+    { path: '/notifications/:id', component: NotificationDetails, name: 'Aviso' },
     { path: '/profile', component: Profile, name: 'Perfil' },
     { path: '/login', component: Login, name: 'Iniciar sesión' },
     { path: '/settings', component: Settings, name: 'Ajustes' },
