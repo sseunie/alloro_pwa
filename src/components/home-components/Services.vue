@@ -26,13 +26,11 @@
             </div>
         </div>
     </router-link>
-
-    <Footer />
 </template>
 
 <script>
 export default {
-name: "Services"
+    name: "Services"
 }
 </script>
 
