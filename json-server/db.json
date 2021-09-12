@@ -4,35 +4,41 @@
       "id": 1,
       "title": "Renovación de plaza para el próximo curso",
       "text": "Recuerda que el viernes 28 es el último día para solicitar la renovación de plaza en las Residencias Universitarias ULPGC para el próximo curso.",
-      "url": "https://www.google.com/"
+      "url": "https://www.google.com/",
+      "createdAt": "2021-08-06T16:58:29.640Z"
     },
     {
       "id": 2,
       "title": "Aviso de abandono",
       "text": "Si no lo has hecho, recuerda que mañana es el último día para rellenar tu aviso de abandono. Gracias por colaborar.",
-      "url": "https://www.google.com/"
+      "url": "https://www.google.com/",
+      "createdAt": "2021-05-27T12:58:29.640Z"
     },
     {
       "id": 3,
       "title": "Encuestas de evaluación",
-      "text": "Hemos enviado a tu correo el enlace a la encuesta de evaluación de los servicios de las Residencias Universitarias ULPG, rogamos tu colaboración."
+      "text": "Hemos enviado a tu correo el enlace a la encuesta de evaluación de los servicios de las Residencias Universitarias ULPG, rogamos tu colaboración.",
+      "createdAt": "2021-06-23T16:58:29.640Z"
     },
     {
       "id": 4,
       "title": "Aviso de abandono",
-      "text": "Si aún no lo has hecho, recuerda realizar tu aviso de abandono de las residencias antes del 28 de mayo a través del área privada."
+      "text": "Si aún no lo has hecho, recuerda realizar tu aviso de abandono de las residencias antes del 28 de mayo a través del área privada.",
+      "createdAt": "2021-05-01T10:01:29.640Z"
     },
     {
       "id": 5,
       "title": "Abierta convocatoria renovación de plazas",
       "text": "El plazo para solicitar la renovación de plazas en las Residencias Universitarias ULPGC para el curso 21/22 es del 14 al 28 de mayo.",
-      "url": "https://www.google.com/"
+      "url": "https://www.google.com/",
+      "createdAt": "2021-05-13T13:08:29.640Z"
     },
     {
       "id": 6,
       "title": "Procedimiento final de curso",
       "text": "Adjuntamos información importante sobre el procedimiento de salida de las Residencias Universitarias ULPGC.",
-      "url": "https://www.google.com/"
+      "url": "https://www.google.com/",
+      "createdAt": "2021-06-09T16:58:29.640Z"
     }
   ],
   "users": [
