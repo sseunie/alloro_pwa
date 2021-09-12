@@ -1,9 +1,7 @@
 <template>
     <div class="content" v-if="incidence">
-        <div class="speech-bubble speech-left bg-highlight">
-            {{ incidence.subject }}
-        </div>
-        <div class="clearfix" />
+        <div class="text-center mb-4"><h4>{{ incidence.subject }}</h4></div>
+
         <div class="speech-bubble speech-left bg-highlight">
             {{ incidence.message }}
         </div>
