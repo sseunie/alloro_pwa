@@ -179,6 +179,16 @@
       "createdAt": "2021-09-12T12:08:45.939Z",
       "read": true,
       "id": 6
+    },
+    {
+      "residence": 1,
+      "area": 3,
+      "subject": "El suelo está siempre mojado",
+      "message": "Estaba yendo a reclamar una cosa y me resbalé :(",
+      "userId": "1",
+      "createdAt": "2021-09-12T14:17:46.410Z",
+      "read": true,
+      "id": 7
     }
   ],
   "absences": [

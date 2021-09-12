@@ -116,7 +116,7 @@ export default {
             } else {
                 this.generalError = false
                 this.textareaError = false
-                api.createIncidence({
+                this.$store.dispatch('createIncidence', {
                     residence: this.selectedResidence,
                     area: this.selectedArea,
                     subject: this.subject,
@@ -138,6 +138,10 @@ export default {
         api.getIncidenceAreas().then(r => {
             this.incidenceAreas = r.data
         })
+
+        if (this.$store.getters.incidences.length === 0) {
+            this.$store.dispatch('getIncidences')
+        }
     }
 }
 </script>

@@ -53,5 +53,6 @@ export default {
 .speech-bubble {
     margin-bottom: 5px;
     max-width: 70%;
+    word-break: break-word;
 }
 </style>

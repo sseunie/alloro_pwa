@@ -27,8 +27,8 @@ export default {
         },
         createIncidence: ({commit}, data) => {
             api.createIncidence(data)
-                .then(() => {
-                    commit('pushIncidence', data)
+                .then((r) => {
+                    commit('pushIncidence', r.data)
                 })
         },
         updateIncidenceReadStatus: ({commit}, id) => {
