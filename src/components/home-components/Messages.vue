@@ -32,7 +32,11 @@ export default {
     },
     methods: {
         date(incidence) {
-            return utils.formatDate(incidence.createdAt)
+            if (incidence.messages === undefined) {
+                return utils.formatDate(incidence.createdAt)
+            } else {
+                return utils.formatDate(incidence.messages.at(-1).createdAt)
+            }
         }
     },
     created() {

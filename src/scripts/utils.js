@@ -1,5 +1,8 @@
 export default {
     compareDates(a, b) {
+        if (a.messages !== undefined) a = a.messages.at(-1)
+        if (b.messages !== undefined) b = b.messages.at(-1)
+
         if ( new Date(a.createdAt) > new Date(b.createdAt) ){
             return -1
         }
