@@ -44,6 +44,10 @@ export default {
 
     getIncidences() {
         return globalAxios.get(`${API_URL}/incidences?userId=${localStorage.getItem('userid')}`, config())
+    },
+
+    updateIncidenceReadStatus(id) {
+        return globalAxios.patch(`${API_URL}/incidences/${id}`, { read: true }, config())
     }
 }
 

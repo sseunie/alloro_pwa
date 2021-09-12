@@ -35,7 +35,11 @@ export default {
     },
     created() {
         if (this.incidence === undefined) {
-            this.$store.dispatch('getIncidences')
+            this.$store.dispatch('getIncidences').then(() => {
+                this.$store.dispatch('updateIncidenceReadStatus', this.$route.params.id)
+            })
+        } else {
+            this.$store.dispatch('updateIncidenceReadStatus', this.$route.params.id)
         }
     }
 }

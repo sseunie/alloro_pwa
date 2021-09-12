@@ -8,7 +8,7 @@
             <div class="content">
                 <div class="d-flex justify-content-between">
                     <h4 class="mb-3">{{ incidence.subject }}</h4>
-                    <i class="fas fa-exclamation-circle unread"></i>
+                    <i v-if="!incidence.read" class="fas fa-exclamation-circle unread"></i>
                 </div>
 
                 <div class="d-flex justify-content-between">
