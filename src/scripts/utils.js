@@ -16,11 +16,12 @@ export default {
         const diffMonths = currentDate.getMonth() - fullDate.getMonth()
         const diffYears = currentDate.getFullYear() - fullDate.getFullYear()
 
-        const day = fullDate.getDate() < 10 ? `0${fullDate.getDate()}` : fullDate.getDate()
-        const month = fullDate.getMonth() < 9 ? `0${fullDate.getMonth()+1}` : fullDate.getMonth() + 1
+        const day = this.formatToTwoDigits(fullDate.getDate())
+        const month = this.formatToTwoDigits(fullDate.getMonth() + 1)
+
 
         if (diffDays === 0 && diffMonths === 0 && diffYears === 0) {
-            return `${fullDate.getHours()}:${fullDate.getMinutes()}`
+            return this.getTime(fullDate)
         } else if (diffDays === 1 && diffMonths === 0 && diffYears === 0) {
             return 'Ayer'
         } else if (diffYears === 0) {
@@ -28,5 +29,24 @@ export default {
         } else {
             return `${day}/${month}/${fullDate.getFullYear()}`
         }
+    },
+
+    formatDateTime(givenDate) {
+        const formattedDate = this.formatDate(givenDate)
+        if (formattedDate.includes(':')) {
+            return formattedDate
+        } else {
+            return `${formattedDate} ${this.getTime(new Date(givenDate))}`
+        }
+    },
+
+    formatToTwoDigits(number) {
+        return number < 10 ? `0${number}` : number
+    },
+
+    getTime(date) {
+        const hours = this.formatToTwoDigits(date.getHours())
+        const minutes = this.formatToTwoDigits(date.getMinutes())
+        return `${hours}:${minutes}`
     }
 }

@@ -127,7 +127,8 @@
       "message": "Hay una rata circulando libremente por mi estancia. SOS",
       "id": 1,
       "createdAt": "2021-09-02T16:58:29.640Z",
-      "userId": "1"
+      "userId": "1",
+      "read": false
     },
     {
       "residence": 3,
@@ -136,7 +137,8 @@
       "message": "Habia un caracol derrapando por la lechuga",
       "id": 2,
       "createdAt": "2021-09-04T19:58:29.640Z",
-      "userId": "1"
+      "userId": "1",
+      "read": false
     },
     {
       "residence": 3,
@@ -145,7 +147,8 @@
       "message": "El suelo está inundado!",
       "userId": "1",
       "createdAt": "2021-09-06T12:10:43.595Z",
-      "id": 3
+      "id": 3,
+      "read": false
     },
     {
       "residence": 4,
@@ -154,7 +157,28 @@
       "message": "Pues tengo una queja y la queja es:",
       "userId": "1",
       "createdAt": "2021-09-07T19:10:43.595Z",
-      "id": 5
+      "id": 5,
+      "messages": [
+        {
+          "text": "Incidencia enviada al área indicada",
+          "createdAt": "2021-09-07T20:10:43.595Z"
+        },
+        {
+          "text": "Mantenimiento comunica que la incidencia ha sido solucionada",
+          "createdAt": "2021-09-08T12:13:43.595Z"
+        }
+      ],
+      "read": false
+    },
+    {
+      "residence": 2,
+      "area": 5,
+      "subject": "SANGRE EN LA LAVADORA",
+      "message": "Me dispuse a lavar mi ropa y para mi sorpresa... ¡cuando abrí la tapa estaba todo manchado de sangre!",
+      "userId": "1",
+      "createdAt": "2021-09-12T12:08:45.939Z",
+      "read": true,
+      "id": 6
     }
   ],
   "absences": [

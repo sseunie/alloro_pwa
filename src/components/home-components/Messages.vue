@@ -4,17 +4,19 @@
         :key="incidence.id"
         class="card card-style"
     >
-        <div class="content">
-            <div class="d-flex justify-content-between">
-                <h4 class="mb-3">{{ incidence.subject }}</h4>
-                <i class="fas fa-exclamation-circle unread"></i>
-            </div>
+        <router-link :to="`/messages/${incidence.id}`">
+            <div class="content">
+                <div class="d-flex justify-content-between">
+                    <h4 class="mb-3">{{ incidence.subject }}</h4>
+                    <i class="fas fa-exclamation-circle unread"></i>
+                </div>
 
-            <div class="d-flex justify-content-between">
-                <p class="message-preview">{{ incidence.message }}</p>
-                <p>{{ date(incidence) }}</p>
+                <div class="d-flex justify-content-between">
+                    <p class="message-preview">{{ incidence.message }}</p>
+                    <p>{{ date(incidence) }}</p>
+                </div>
             </div>
-        </div>
+        </router-link>
     </div>
 </template>
 

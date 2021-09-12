@@ -6,7 +6,10 @@ export default {
         incidences: []
     },
     getters: {
-        incidences: (state) => state.incidences.sort(utils.compareDates)
+        incidences: (state) => state.incidences.sort(utils.compareDates),
+        incidence: (state) => (id) => {
+            return state.incidences.find(incidence => incidence.id == id)
+        }
     },
     mutations: {
         setIncidences: (state, data) => state.incidences = data,

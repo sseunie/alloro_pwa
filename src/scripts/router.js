@@ -13,6 +13,7 @@ import IMPInformation from "@/components/home-components/IMPInformation";
 import Incidences from "@/components/home-components/Incidences";
 import Absences from "@/components/home-components/Absences";
 import Messages from "@/components/home-components/Messages";
+import MessagesDetails from "@/components/home-components/MessagesDetails";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -28,6 +29,7 @@ const routes = [
     { path: '/incidences', component: Incidences, name: 'Incidencias' },
     { path: '/absences', component: Absences, name: 'Ausencias' },
     { path: '/messages', component: Messages, name: 'Mensajes' },
+    { path: '/messages/:id', component: MessagesDetails, name: 'Mensajes de la incidencia' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 
