@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <p class="message-preview">{{ incidence.message }}</p>
+                    <p class="message-preview">{{ lastMessage(incidence) }}</p>
                     <p>{{ date(incidence) }}</p>
                 </div>
             </div>
@@ -32,11 +32,10 @@ export default {
     },
     methods: {
         date(incidence) {
-            if (incidence.messages === undefined) {
-                return utils.formatDate(incidence.createdAt)
-            } else {
-                return utils.formatDate(incidence.messages.at(-1).createdAt)
-            }
+            return utils.formatDate(incidence.messages ? incidence.messages.at(-1).createdAt : incidence.createdAt)
+        },
+        lastMessage(incidence) {
+            return incidence.messages ? incidence.messages.at(-1).text : incidence.message
         }
     },
     created() {
