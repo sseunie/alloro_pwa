@@ -39,7 +39,7 @@
                 <label for="incidence-subject" class="color-highlight">Asunto</label>
             </div>
 
-            <div class="input-style has-borders no-icon" style="margin-bottom: 5px !important;">
+            <div class="input-style has-borders no-icon" style="margin-bottom: 0 !important;">
                 <textarea
                     v-model="body"
                     :class="bodyLength > 150 && 'red-border'"
@@ -47,11 +47,21 @@
                     placeholder="Escribe aquí tu mensaje..."></textarea>
                 <label for="incidence-text" class="color-highlight">Cuerpo</label>
             </div>
-            <p class="char-counter" :class="bodyLength > 150 && 'color-red-dark'">{{ bodyLength }}/150</p>
+            <div><p class="char-counter" :class="bodyLength > 150 && 'color-red-dark'">{{ bodyLength }}/150</p></div>
+
+            <div class="has-borders no-icon my-3">
+                <label for="incidence-image" class="color-highlight mx-1">Imágenes</label>
+                <input
+                    type="file" class="form-control" id="incidence-image"
+                    accept="image/*" multiple
+                    ref="incidenceImages"
+                >
+            </div>
         </div>
 
-        <p v-if="generalError" class="color-red-dark text-center my-2">Debes rellenar todos los campos</p>
-        <p v-if="textareaError" class="color-red-dark text-center my-2">El mensaje debe contener entre 10 y 150 caracteres</p>
+        <p v-if="error.general" class="color-red-dark text-center my-2">Debes rellenar todos los campos</p>
+        <p v-if="error.textarea" class="color-red-dark text-center my-2">El mensaje debe contener entre 10 y 150 caracteres</p>
+        <p v-if="error.images" class="color-red-dark text-center my-2">El número máximo de imágenes permitido es 3</p>
 
         <button
             @click="send"
@@ -90,8 +100,7 @@ export default {
         selectedArea: 'default',
         subject: '',
         body: '',
-        generalError: false,
-        textareaError: false,
+        error: { general: false, textarea: false, images: false },
         residences: [],
         incidenceAreas: [],
         success: false
@@ -103,19 +112,29 @@ export default {
     },
     methods: {
         send() {
+            const images = this.$refs.incidenceImages.files
+
             if (this.selectedResidence === 'default' ||
                 this.selectedArea === 'default' ||
                 this.subject.trim().length === 0 ||
                 this.body.length === 0
             ) {
-                this.generalError = true
-                this.textareaError = false
+                this.error.general = true
+                this.error.textarea = false
+                this.error.images = false
             } else if (this.body.length > 150 || this.body.length < 10) {
-                this.textareaError = true
-                this.generalError = false
+                this.error.textarea = true
+                this.error.general = false
+                this.error.images = false
+            } else if (images.length > 3) {
+                this.error.images = true
+                this.error.general = false
+                this.error.textarea = false
             } else {
-                this.generalError = false
-                this.textareaError = false
+                this.error.general = false
+                this.error.textarea = false
+                this.error.images = false
+
                 this.$store.dispatch('createIncidence', {
                     residence: this.selectedResidence,
                     area: this.selectedArea,
