@@ -6,8 +6,9 @@
     >
         <router-link :to="`/notifications/${notification.id}`">
             <div class="content">
-                <div>
+                <div class="d-flex justify-content-between">
                     <h4 class="mb-3">{{ notification.title }}</h4>
+                    <i v-if="inInbox(notification.id)" class="fas fa-exclamation-circle unread"></i>
                 </div>
 
                 <div class="d-flex justify-content-between">
@@ -33,6 +34,9 @@ export default {
         date(notification) {
             return utils.formatDate(notification.createdAt)
         },
+        inInbox(id) {
+            return this.$store.getters.inbox.notifications.includes(id)
+        }
     },
     created() {
         if (this.$store.getters.notifications.length === 0) {

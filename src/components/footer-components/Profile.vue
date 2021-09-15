@@ -92,6 +92,7 @@ export default {
             this.$router.push('/homepage');
             this.$store.dispatch('clearIncidences');
             this.$store.dispatch('clearAbsences');
+            this.$store.dispatch('clearInbox');
         },
         updateUserData() {
             api.updateUser(this.user.id, {

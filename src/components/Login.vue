@@ -46,6 +46,7 @@ export default {
                 .then(r => {
                     localStorage.setItem('token', r.data.token);
                     localStorage.setItem('userid', r.data.id);
+                    this.$store.dispatch('getInbox')
                     if (this.$route.params.nextRoute === undefined) {
                         this.$router.push('/homepage');
                     } else {

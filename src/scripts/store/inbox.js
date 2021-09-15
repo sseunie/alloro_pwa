@@ -8,7 +8,7 @@ export default {
         inbox: (state) => state.inbox
     },
     mutations: {
-        setInbox: (state, data) => state.inbox = data[0],
+        setInbox: (state, data) => state.inbox = data,
         updateIncidencesInbox: (state, incidences) => state.inbox.incidences = incidences,
         updateNotificationsInbox: (state, notifications) => state.inbox.notifications = notifications
     },
@@ -17,7 +17,7 @@ export default {
             if (localStorage.getItem('userid')) {
                 api.getInbox()
                     .then(r => {
-                        commit('setInbox', r.data)
+                        commit('setInbox', r.data[0])
                     })
             }
         },
@@ -40,6 +40,7 @@ export default {
                     commit('updateNotificationsInbox', ids)
                 })
             }
-        }
+        },
+        clearInbox: ({commit}) => commit('setInbox', { notifications: [], incidences: [] })
     }
 }
