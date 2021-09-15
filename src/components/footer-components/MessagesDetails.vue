@@ -37,9 +37,15 @@ export default {
         if (this.incidence === undefined) {
             this.$store.dispatch('getIncidences').then(() => {
                 this.$store.dispatch('updateIncidenceReadStatus', this.$route.params.id)
+                    .then(() => {
+                        this.$store.dispatch('removeIncidenceFromInbox', this.$route.params.id)
+                    })
             })
         } else {
             this.$store.dispatch('updateIncidenceReadStatus', this.$route.params.id)
+                .then(() => {
+                    this.$store.dispatch('removeIncidenceFromInbox', this.$route.params.id)
+                })
         }
     }
 }

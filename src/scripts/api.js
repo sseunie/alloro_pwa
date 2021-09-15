@@ -48,6 +48,15 @@ export default {
 
     updateIncidenceReadStatus(id) {
         return globalAxios.patch(`${API_URL}/incidences/${id}`, { read: true }, config())
+    },
+
+    getInbox() {
+        return globalAxios.get(`${API_URL}/users/${localStorage.getItem('userid')}/inbox`)
+    },
+
+    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
+    updateIncidencesFromInbox(incidences) {
+        return globalAxios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { incidences })
     }
 }
 

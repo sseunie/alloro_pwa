@@ -134,7 +134,7 @@
       "id": 1,
       "createdAt": "2021-09-02T16:58:29.640Z",
       "userId": "1",
-      "read": true
+      "read": false
     },
     {
       "residence": 3,
@@ -180,7 +180,7 @@
           "createdAt": "2021-09-08T12:13:43.595Z"
         }
       ],
-      "read": true
+      "read": false
     },
     {
       "residence": 2,
@@ -251,6 +251,34 @@
       "userId": "2",
       "createdAt": "2021-09-07T17:22:16.145Z",
       "id": 6
+    }
+  ],
+  "inbox": [
+    {
+      "id": 1,
+      "userId": 1,
+      "notifications": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "incidences": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "notifications": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "incidences": []
     }
   ]
 }
