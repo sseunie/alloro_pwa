@@ -9,7 +9,8 @@ export default {
     },
     mutations: {
         setInbox: (state, data) => state.inbox = data[0],
-        updateIncidencesInbox: (state, incidences) => state.inbox.incidences = incidences
+        updateIncidencesInbox: (state, incidences) => state.inbox.incidences = incidences,
+        updateNotificationsInbox: (state, notifications) => state.inbox.notifications = notifications
     },
     actions: {
         getInbox: ({commit}) => {
@@ -27,6 +28,16 @@ export default {
                 ids.splice(index, 1)
                 api.updateIncidencesFromInbox(ids).then(() => {
                     commit('updateIncidencesInbox', ids)
+                })
+            }
+        },
+        removeNotificationsFromInbox: ({commit, state}, id) => {
+            let ids = [...state.inbox.notifications]
+            const index = ids.indexOf(parseInt(id))
+            if (index > -1) {
+                ids.splice(index, 1)
+                api.updateNotificationsFromInbox(ids).then(() => {
+                    commit('updateNotificationsInbox', ids)
                 })
             }
         }

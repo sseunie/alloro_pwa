@@ -56,7 +56,12 @@ export default {
 
     // path should be /users/:id/inbox, but json-server does not allow a patch on that path
     updateIncidencesFromInbox(incidences) {
-        return globalAxios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { incidences })
+        return globalAxios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { incidences }, config())
+    },
+
+    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
+    updateNotificationsFromInbox(notifications) {
+        return globalAxios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { notifications }, config())
     }
 }
 

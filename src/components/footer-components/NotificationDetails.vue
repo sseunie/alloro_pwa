@@ -35,6 +35,11 @@ export default {
     created() {
         if (this.notification === undefined) {
             this.$store.dispatch('getNotifications')
+                .then(() => {
+                    this.$store.dispatch('removeNotificationsFromInbox', this.$route.params.id)
+                })
+        } else {
+            this.$store.dispatch('removeNotificationsFromInbox', this.$route.params.id)
         }
     }
 }
