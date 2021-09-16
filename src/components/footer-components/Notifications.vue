@@ -39,9 +39,7 @@ export default {
         }
     },
     created() {
-        if (this.$store.getters.notifications.length === 0) {
-            this.$store.dispatch('getNotifications')
-        }
+        this.$store.dispatch('getNotifications')
     }
 }
 </script>
