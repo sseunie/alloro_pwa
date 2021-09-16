@@ -258,13 +258,12 @@
       "id": 1,
       "userId": 1,
       "notifications": [
-        4
+        4,
+        5
       ],
       "incidences": [
         1,
-        2,
-        3,
-        5
+        2
       ]
     },
     {
