@@ -14,6 +14,10 @@ export default {
     mutations: {
         setIncidences: (state, data) => state.incidences = data,
         pushIncidence: (state, incidence) => state.incidences.push(incidence),
+        updateIncidence: (state, incidence) => {
+            const index = state.incidences.findIndex(i => i.id === incidence.id)
+            state.incidences[index] = incidence
+        },
         updateRead: (state, id) => {
             const index = state.incidences.findIndex(incidence => incidence.id == id)
             state.incidences[index].read = true
@@ -36,6 +40,13 @@ export default {
                 .then(() => {
                     commit('updateRead', id)
                 })
+        },
+        getUpdatedIncidences: ({commit}, ids) => {
+            ids.forEach(id => {
+                api.getIncidence(id).then(r => {
+                    commit('updateIncidence', r.data)
+                })
+            })
         },
         clearIncidences: ({commit}) => commit('setIncidences', [])
     }

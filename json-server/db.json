@@ -130,7 +130,7 @@
       "residence": 2,
       "area": 3,
       "subject": "Rata",
-      "message": "Hay una rata circulando libremente por mi estancia. SOS",
+      "message": "Hay una rata en mi apartamento. SOS",
       "id": 1,
       "createdAt": "2021-09-02T16:58:29.640Z",
       "userId": "1",
@@ -140,11 +140,11 @@
       "residence": 3,
       "area": 2,
       "subject": "Un caracol en la comida",
-      "message": "Habia un caracol derrapando por la lechuga",
+      "message": "Había un caracol pasándosela bien en mi comida",
       "id": 2,
       "createdAt": "2021-09-04T19:58:29.640Z",
       "userId": "1",
-      "read": true
+      "read": false
     },
     {
       "residence": 3,
@@ -180,7 +180,7 @@
           "createdAt": "2021-09-08T12:13:43.595Z"
         }
       ],
-      "read": false
+      "read": true
     },
     {
       "residence": 2,
@@ -258,13 +258,10 @@
       "id": 1,
       "userId": 1,
       "notifications": [
-        2,
-        4,
-        5
+        4
       ],
       "incidences": [
-        1,
-        5
+        1
       ]
     },
     {

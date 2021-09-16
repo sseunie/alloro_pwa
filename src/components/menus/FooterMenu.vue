@@ -23,7 +23,9 @@ export default {
     },
     methods: {
         fetchInbox() {
-            this.$store.dispatch('getInbox')
+            this.$store.dispatch('getInbox').then(() => {
+                this.$store.dispatch('getUpdatedIncidences', this.$store.getters.inbox.incidences)
+            })
         }
     },
     created() {
