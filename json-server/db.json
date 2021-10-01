@@ -47,8 +47,8 @@
       "name": "Stefany",
       "surname1": "Martin",
       "surname2": "Socas",
-      "phoneNumber": "123456789",
-      "email": "stefany@correo.com",
+      "phoneNumber": "12345678945",
+      "email": "stefany@correo.come",
       "building": "EI",
       "room": "311",
       "buildingName": "Edificio Inventado",
@@ -144,7 +144,7 @@
       "id": 2,
       "createdAt": "2021-09-04T19:58:29.640Z",
       "userId": "1",
-      "read": false
+      "read": true
     },
     {
       "residence": 3,
@@ -201,6 +201,26 @@
       "createdAt": "2021-09-12T14:17:46.410Z",
       "read": true,
       "id": 7
+    },
+    {
+      "residence": 3,
+      "area": 2,
+      "subject": "knnk",
+      "message": "oniñndsfpbsdpfbsdpfbsdfipsbdfsijdf",
+      "userId": "1",
+      "createdAt": "2021-09-24T15:12:30.081Z",
+      "read": true,
+      "id": 8
+    },
+    {
+      "residence": 2,
+      "area": 3,
+      "subject": "asunto",
+      "message": "estoy escribiendo un mensaje",
+      "userId": "1",
+      "createdAt": "2021-09-30T17:08:21.390Z",
+      "read": true,
+      "id": 9
     }
   ],
   "absences": [
@@ -251,6 +271,14 @@
       "userId": "2",
       "createdAt": "2021-09-07T17:22:16.145Z",
       "id": 6
+    },
+    {
+      "startDate": "2021-10-19T00:00:00.000Z",
+      "finishDate": "2021-10-23T00:00:00.000Z",
+      "observations": "observaciones",
+      "userId": "1",
+      "createdAt": "2021-09-30T17:17:31.827Z",
+      "id": 7
     }
   ],
   "inbox": [
@@ -258,12 +286,10 @@
       "id": 1,
       "userId": 1,
       "notifications": [
-        4,
         5
       ],
       "incidences": [
-        1,
-        2
+        1
       ]
     },
     {

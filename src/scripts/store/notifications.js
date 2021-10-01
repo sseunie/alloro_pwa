@@ -6,7 +6,9 @@ export default {
         notifications: []
     },
     getters: {
-        notifications: (state) => state.notifications.sort(utils.compareDates),
+        notificationsByDate: (state) => {
+            return state.notifications.sort(utils.compareDates)
+        },
         notification: (state) => (id) => {
             return state.notifications.find(notification => notification.id == id)
         }

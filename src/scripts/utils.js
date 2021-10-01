@@ -51,5 +51,14 @@ export default {
         const hours = this.formatToTwoDigits(date.getHours())
         const minutes = this.formatToTwoDigits(date.getMinutes())
         return `${hours}:${minutes}`
+    },
+
+    checkForValue(json, value) {
+        for (let key in json) {
+            if (json[key].toString().includes(value)) {
+                return true
+            }
+        }
+        return false
     }
 }

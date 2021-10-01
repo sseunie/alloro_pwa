@@ -3,7 +3,7 @@
     <div
         class="card header-card shape-rounded"
         style="height: 150px;"
-        v-if="$route.path !== '/' && $route.name !== 'Mensajes de la incidencia'"
+        v-if="$route.path !== '/' && $route.name !== 'Mensajes de la incidencia' && $route.path !== '/notifications'"
     >
         <div class="card-overlay bg-highlight opacity-95"></div>
         <div class="card-overlay dark-mode-tint"></div>

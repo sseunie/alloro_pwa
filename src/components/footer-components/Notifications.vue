@@ -1,4 +1,9 @@
 <template>
+    <div class="search-box search-color shadow-xl border-0 bg-blue-dark rounded-l bottom-0">
+        <i class="fa fa-search"></i>
+        <input type="text" class="border-0" placeholder="Buscar..." v-model="search">
+    </div>
+
     <div
         v-for="notification in notifications"
         :key="notification.id"
@@ -25,9 +30,19 @@ import utils from "@/scripts/utils";
 
 export default {
     name: "Notifications",
+    data: () => ({
+        search: ''
+    }),
     computed: {
         notifications() {
-            return this.$store.getters.notifications
+            const word = this.search.trim()
+            if (word === '') {
+                return this.$store.getters.notificationsByDate
+            } else {
+                return this.$store.getters.notificationsByDate.filter(n => {
+                    return utils.checkForValue(n, word)
+                })
+            }
         }
     },
     methods: {
@@ -66,5 +81,8 @@ p.message-preview {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.search-box {
+    margin: 0 10px 12px 10px;
 }
 </style>
