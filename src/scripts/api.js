@@ -11,10 +11,6 @@ export default {
         return axios.get(`${API_URL}/users/${id}`, config());
     },
 
-    updateUser(id, data) {
-        return axios.patch(`${API_URL}/users/${id}`, data, config())
-    },
-
     login(username, password) {
         const params = new URLSearchParams();
         params.append('username', username);

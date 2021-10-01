@@ -41,24 +41,18 @@
             </div>
 
             <div class="input-style has-borders hnoas-icon input-style-always-active mb-4">
-                <input type="text" class="form-control" id="phone" v-model="phoneNumber">
+                <input type="text" class="form-control" id="phone" disabled :value="user.phoneNumber">
                 <label for="phone" class="color-highlight font-400 font-13">Teléfono</label>
                 <i class="fa fa-times disabled invalid color-red-dark"></i>
                 <i class="fa fa-check disabled valid color-green-dark"></i>
             </div>
 
             <div class="input-style has-borders no-icon input-style-always-active mb-4">
-                <input type="email" class="form-control" id="email" v-model="email">
+                <input type="email" class="form-control" id="email" disabled :value="user.email">
                 <label for="email" class="color-highlight font-400 font-13">Email</label>
                 <i class="fa fa-times disabled invalid color-red-dark"></i>
                 <i class="fa fa-check disabled valid color-green-dark"></i>
             </div>
-
-            <p v-if="success" class="color-grass-dark text-center my-3">Se han actualizado los datos correctamente</p>
-            <button
-                @click="updateUserData"
-                class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto mt-2 mb-4"
-            >Guardar cambios</button>
         </div>
     </div>
 
@@ -75,10 +69,7 @@ import api from "@/scripts/api";
 export default {
     name: "Profile",
     data: () => ({
-        user: [],
-        phoneNumber: '',
-        email: '',
-        success: false
+        user: []
     }),
     computed: {
         userSurname() {
@@ -93,18 +84,6 @@ export default {
             this.$store.dispatch('clearIncidences');
             this.$store.dispatch('clearAbsences');
             this.$store.dispatch('clearInbox');
-        },
-        updateUserData() {
-            api.updateUser(this.user.id, {
-                phoneNumber: this.phoneNumber,
-                email: this.email
-            }).then(() => {
-                this.success = true;
-            }).catch(e => {
-                if (e.response.status === 401) {
-                    this.$router.push('/login');
-                }
-            });
         }
     },
     created() {
