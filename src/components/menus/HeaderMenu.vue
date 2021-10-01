@@ -25,6 +25,6 @@ export default {
     font-size: 16px;
 }
 #header-menu {
-    background-color: #4A89DC;
+    background-color: #3385B4;
 }
 </style>

@@ -122,20 +122,20 @@ body {
 
 /* Generating Color Pack*/
 .color-highlight {
-  color: #4A89DC !important;
+  color: #3385B4 !important;
 }
 
 .bg-highlight {
-  background-color: #4A89DC !important;
+  background-color: #3385B4 !important;
   color: #FFF !important;
 }
 
 .border-highlight {
-  border-color: #4A89DC !important;
+  border-color: #3385B4 !important;
 }
 
 .gradient-highlight {
-  background-image: linear-gradient(to bottom, #5D9CEC, #4A89DC) !important;
+  background-image: linear-gradient(to bottom, #5D9CEC, #3385B4) !important;
   color: #FFF;
 }
 
@@ -159,16 +159,16 @@ body {
 }
 
 .color-highlight-dark {
-  color: #4A89DC !important;
+  color: #3385B4 !important;
 }
 
 .color-icon-highlight {
-  stroke: #4A89DC !important;
+  stroke: #3385B4 !important;
   fill: rgba(93, 156, 236, 0.3) !important;
 }
 
 .bg-highlight-dark {
-  background-color: #4A89DC !important;
+  background-color: #3385B4 !important;
   color: #FFF !important;
 }
 
@@ -177,15 +177,15 @@ body {
 }
 
 .border-highlight-dark {
-  border-color: #4A89DC !important;
+  border-color: #3385B4 !important;
 }
 
 .focus-highlight:focus {
-  border-color: #4A89DC !important;
+  border-color: #3385B4 !important;
 }
 
 .gradient-highlight {
-  background-image: linear-gradient(to bottom, #5D9CEC, #4A89DC);
+  background-image: linear-gradient(to bottom, #5D9CEC, #3385B4);
 }
 
 [data-feather-color=highlight-dark] {
@@ -193,7 +193,7 @@ body {
 }
 
 [data-feather-color=highlight-light] {
-  stroke: #4A89DC;
+  stroke: #3385B4;
 }
 
 [data-feather-bg=highlight-fade-dark] {
@@ -614,16 +614,16 @@ body {
 }
 
 .color-blue-dark {
-  color: #4A89DC !important;
+  color: #3385B4 !important;
 }
 
 .color-icon-blue {
-  stroke: #4A89DC !important;
+  stroke: #3385B4 !important;
   fill: rgba(74, 137, 220, 0.3) !important;
 }
 
 .bg-blue-dark {
-  background-color: #4A89DC !important;
+  background-color: #3385B4 !important;
   color: #FFF !important;
 }
 
@@ -632,15 +632,15 @@ body {
 }
 
 .border-blue-dark {
-  border-color: #4A89DC !important;
+  border-color: #3385B4 !important;
 }
 
 .focus-blue:focus {
-  border-color: #4A89DC !important;
+  border-color: #3385B4 !important;
 }
 
 .gradient-blue {
-  background-image: linear-gradient(to bottom, #5D9CEC, #4A89DC);
+  background-image: linear-gradient(to bottom, #5D9CEC, #3385B4);
 }
 
 [data-feather-color=blue-dark] {
@@ -648,7 +648,7 @@ body {
 }
 
 [data-feather-color=blue-light] {
-  stroke: #4A89DC;
+  stroke: #3385B4;
 }
 
 [data-feather-bg=blue-fade-dark] {
@@ -1429,37 +1429,37 @@ body {
 .footer-bar-5 strong,
 .footer-bar-4 strong,
 .splide__pagination__page.is-active {
-  background-color: #4A89DC !important;
+  background-color: #3385B4 !important;
 }
 
 .footer-bar-1 .active-nav i,
 .footer-bar-1 .active-nav span,
 .footer-bar-3 .active-nav i {
-  color: #4A89DC !important;
+  color: #3385B4 !important;
 }
 
 .footer-bar-6 .circle-nav strong, .footer-bar-6 .active-nav em {
-  background-image: linear-gradient(to bottom, #5D9CEC, #4A89DC) !important;
+  background-image: linear-gradient(to bottom, #5D9CEC, #3385B4) !important;
 }
 
 .form-floating-over > .form-control:focus ~ label {
-  color: #4A89DC;
+  color: #3385B4;
 }
 
 .form-floating-over > .form-control:not(:placeholder-shown) ~ label {
-  color: #4A89DC;
+  color: #3385B4;
 }
 
 .form-floating-over > .form-select ~ label {
-  color: #4A89DC;
+  color: #3385B4;
 }
 
 .color-highlight {
-  color: #4A89DC;
+  color: #3385B4;
 }
 
 .bg-highlight {
-  background-color: #4A89DC;
+  background-color: #3385B4;
   color: #FFF !important;
 }
 
@@ -4750,11 +4750,11 @@ button {
 }
 
 .fac-default > input + label:before {
-  color: #adb5bd;
+  color: #AAACAD;
 }
 
 .fac-default > span::after {
-  color: #adb5bd;
+  color: #AAACAD;
 }
 
 .fac-blue > input + label:before {
@@ -5339,7 +5339,7 @@ input[type=number] {
   position: absolute;
   font-size: 11px;
   margin-top: 10px;
-  color: #adb5bd;
+  color: #AAACAD;
   font-weight: 500;
 }
 
@@ -6487,7 +6487,7 @@ input[type=number] {
 .cal-schedule span {
   display: block;
   font-size: 10px;
-  color: #adb5bd;
+  color: #AAACAD;
   margin-top: 0px;
 }
 
@@ -6576,7 +6576,7 @@ input[type=number] {
   display: block;
   text-align: right;
   font-weight: 500;
-  color: #adb5bd;
+  color: #AAACAD;
   margin-bottom: 80px;
 }
 
@@ -7040,7 +7040,7 @@ input[type=number] {
 
 .interest-check input:checked ~ label {
   color: #FFF !important;
-  background-color: #4A89DC !important;
+  background-color: #3385B4 !important;
 }
 
 .interest-check input:checked ~ .fa:last-child,

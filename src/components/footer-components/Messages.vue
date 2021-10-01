@@ -61,7 +61,7 @@ i.unread {
     line-height: 19px;
     font-size: 20px;
     margin-right: 5px;
-    color: #4A89DC;
+    color: #3385B4;
 }
 p.message-preview {
     width: 80%;

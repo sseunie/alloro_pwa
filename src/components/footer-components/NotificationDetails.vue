@@ -52,4 +52,7 @@ export default {
 div.content > p {
     margin-bottom: 1rem;
 }
+a {
+    background: #FFB433 !important;
+}
 </style>

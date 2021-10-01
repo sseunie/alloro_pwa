@@ -8,7 +8,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="exclamation-triangle" iconStyle="fas" size="3x" style="color: #FF5252;" />
+                <MDBIcon icon="exclamation-triangle" iconStyle="fas" size="3x" style="color: #CB2E2D;" />
             </div>
         </div>
     </router-link>
@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="calendar-times" iconStyle="fas" size="3x" style="color: #82B1FF;" />
+                <MDBIcon icon="calendar-times" iconStyle="fas" size="3x" style="color: #7FB2D0;" />
             </div>
         </div>
     </router-link>
@@ -36,7 +36,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="box" iconStyle="fas" size="3x" style="color: #93F1AD;" />
+                <MDBIcon icon="box" iconStyle="fas" size="3x" style="color: #377B33;" />
             </div>
         </div>
     </router-link>
@@ -50,7 +50,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="info-circle" iconStyle="fas" size="3x" style="color: #FFE57F;" />
+                <MDBIcon icon="info-circle" iconStyle="fas" size="3x" style="color: #FFD07F;" />
             </div>
         </div>
     </router-link>
@@ -64,7 +64,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="cog" iconStyle="fas" size="3x" style="color: #B388FF;" />
+                <MDBIcon icon="cog" iconStyle="fas" size="3x" style="color: #9C6609;" />
             </div>
         </div>
     </router-link>

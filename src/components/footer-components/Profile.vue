@@ -65,7 +65,7 @@
     <button
         @click="logout"
         id="logout"
-        class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mb-2"
+        class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mb-2 logout"
     >Cerrar sesión</button>
 </template>
 
@@ -133,5 +133,9 @@ input:disabled {
 #logout {
     width: -webkit-fill-available;
     width: -moz-available;
+}
+
+.logout {
+    background: #FFB433 !important;
 }
 </style>

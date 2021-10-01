@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 img.icon-image {
-    border: solid #4A89DC 2px;
+    border: solid #3385B4 2px;
     border-radius: 50%;
     width: 60px;
 }
