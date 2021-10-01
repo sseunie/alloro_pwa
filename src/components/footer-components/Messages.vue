@@ -1,4 +1,9 @@
 <template>
+    <div class="search-box search-color shadow-xl border-0 bg-blue-dark rounded-l bottom-0">
+        <i class="fa fa-search"></i>
+        <input type="text" class="border-0" placeholder="Buscar..." v-model="search">
+    </div>
+
     <div
         v-for="incidence in incidences"
         :key="incidence.id"
@@ -25,9 +30,19 @@ import utils from "@/scripts/utils";
 
 export default {
     name: "Messages",
+    data: () => ({
+        search: ''
+    }),
     computed: {
         incidences() {
-            return this.$store.getters.incidences
+            const word = this.search.trim()
+            if (word === '') {
+                return this.$store.getters.incidences
+            } else {
+                return this.$store.getters.incidences.filter(i => {
+                    return utils.checkForValue(i, word)
+                })
+            }
         }
     },
     methods: {
@@ -68,5 +83,9 @@ p.message-preview {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.search-box {
+    margin: 0 10px 12px 10px;
 }
 </style>
