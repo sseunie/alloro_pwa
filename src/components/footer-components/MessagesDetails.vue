@@ -1,6 +1,19 @@
 <template>
     <div class="content" v-if="incidence">
+        <div class="text-center mb-2 subtitle">
+            <p>{{ incidence.residence.name }}</p>
+            <p>{{ incidence.incidence_area.name }}</p>
+        </div>
         <div class="text-center mb-4"><h4>{{ incidence.subject }}</h4></div>
+
+        <div v-for="(file, i) in incidence.files"
+             :key="`file${i}`"
+             class="speech-bubble speach-image speech-left bg-highlight"
+        >
+            <img class="img-fluid preload-img" :src="file.url" alt="img">
+        </div>
+        <div class="clearfix" />
+
 
         <div class="speech-bubble speech-left bg-highlight">
             {{ incidence.message }}
@@ -50,7 +63,6 @@ export default {
             return utils.formatDateTime(object.created_at)
         },
         sendMessage() {
-            console.log(this.message)
             this.message = ''
         }
     },
@@ -81,5 +93,11 @@ export default {
     margin-bottom: 5px;
     max-width: 70%;
     word-break: break-word;
+}
+.subtitle {
+    margin-top: -15px;
+}
+.subtitle > p {
+    margin-bottom: 0;
 }
 </style>
