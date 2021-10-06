@@ -5,8 +5,8 @@
 
             <div class="input-style no-borders has-icon validate-field mb-4">
                 <i class="fa fa-user"></i>
-                <input type="text" v-model="username" class="form-control" id="username" placeholder="Nombre">
-                <label for="username" class="color-blue-dark font-10 mt-1">Nombre</label>
+                <input type="text" v-model="email" class="form-control" id="email" placeholder="Nombre">
+                <label for="email" class="color-blue-dark font-10 mt-1">Nombre</label>
             </div>
 
             <div class="input-style no-borders has-icon validate-field mb-4">
@@ -36,17 +36,16 @@ import api from "@/scripts/api";
 export default {
     name: "Login",
     data: () => ({
-        username: '',
+        email: '',
         password: '',
         error: null
     }),
     methods: {
         login() {
-            api.login(this.username, this.password)
+            api.login(this.email, this.password)
                 .then(r => {
                     localStorage.setItem('token', r.data.token);
                     localStorage.setItem('userid', r.data.id);
-                    this.$store.dispatch('getInbox')
                     if (this.$route.params.nextRoute === undefined) {
                         this.$router.push('/homepage');
                     } else {
@@ -55,11 +54,7 @@ export default {
                 })
                 .catch(e => {
                     if (e.response === undefined) this.error = 'No se puede conectar con el servidor';
-                    else if (e.response.status === 400) {
-                        this.error = e.response.data.message;
-                    } else {
-                        this.error = 'Se ha producido un error';
-                    }
+                    else this.error = e.response.data.message;
                 })
         }
     }

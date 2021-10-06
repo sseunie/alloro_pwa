@@ -20,8 +20,8 @@ export default {
         },
         createAbsence: ({commit}, data) => {
             api.createAbsence(data)
-                .then(() => {
-                    commit('pushAbsence', data)
+                .then((r) => {
+                    commit('pushAbsence', r.data)
                 })
         },
         clearAbsences: ({commit}) => commit('setAbsences', [])

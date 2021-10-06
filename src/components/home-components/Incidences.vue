@@ -141,8 +141,7 @@ export default {
                     subject: this.subject,
                     message: this.body,
                     userId: localStorage.getItem('userid'),
-                    createdAt: new Date(),
-                    read: true
+                    images
                 }).then(() => {
                     this.success = true
                 })

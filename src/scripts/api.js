@@ -11,9 +11,9 @@ export default {
         return axios.get(`${API_URL}/users/${id}`, config());
     },
 
-    login(username, password) {
+    login(email, password) {
         const params = new URLSearchParams();
-        params.append('username', username);
+        params.append('email', email);
         params.append('password', password);
         return axios.post(`${API_URL}/login`, params);
     },
@@ -27,7 +27,14 @@ export default {
     },
 
     createIncidence(data) {
-        return axios.post(`${API_URL}/incidences`, data, config())
+        let formData = new FormData()
+        for (let key in data) {
+            if (key !== 'images') formData.append(key, data[key])
+        }
+        for (let key in data.images) {
+            formData.append('images[]', data.images[key])
+        }
+        return axios.post(`${API_URL}/incidences`, formData, config())
     },
 
     createAbsence(data) {

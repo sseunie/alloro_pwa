@@ -113,11 +113,10 @@ export default {
                 this.dateError = false
                 this.textareaError = false
                 this.$store.dispatch('createAbsence', {
-                    startDate: new Date(this.startDate),
-                    finishDate: new Date(this.finishDate),
+                    startDate: this.startDate,
+                    finishDate: this.finishDate,
                     observations: this.body,
                     userId: localStorage.getItem('userid'),
-                    createdAt: new Date()
                 }).then(() => {
                     this.success = true
                     this.showForm = false

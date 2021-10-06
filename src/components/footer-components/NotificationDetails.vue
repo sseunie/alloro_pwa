@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         date(notification) {
-            return utils.formatDateTime(notification.createdAt)
+            return utils.formatDateTime(notification.created_at)
         }
     },
     created() {

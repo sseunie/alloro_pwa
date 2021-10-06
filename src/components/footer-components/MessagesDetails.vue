@@ -15,6 +15,19 @@
             <div class="clearfix" />
             <em class="speech-read read-left mb-2">{{ date(message) }}</em>
         </template>
+
+        <div id="footer-bar" class="d-flex">
+            <div class="me-3 speach-icon">
+                <a href="#" data-menu="menu-upload" class="bg-gray-dark ms-2"><i class="fa fa-plus mt-2"></i></a>
+            </div>
+            <div class="flex-fill speach-input">
+                <input v-model="message" type="text" class="form-control" placeholder="Escribe tu mensaje...">
+            </div>
+            <div class="ms-3 speach-icon">
+                <a @click="sendMessage"
+                   class="bg-blue-dark me-2"><i class="fa fa-arrow-up mt-2"></i></a>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -23,6 +36,10 @@ import utils from "@/scripts/utils";
 
 export default {
     name: "MessagesDetails",
+    data: () => ({
+        message: '',
+        files: null
+    }),
     computed: {
         incidence() {
             return this.$store.getters.incidence(this.$route.params.id)
@@ -30,7 +47,11 @@ export default {
     },
     methods: {
         date(object) {
-            return utils.formatDateTime(object.createdAt)
+            return utils.formatDateTime(object.created_at)
+        },
+        sendMessage() {
+            console.log(this.message)
+            this.message = ''
         }
     },
     created() {

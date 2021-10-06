@@ -7,11 +7,11 @@
         <div class="content">
             <div class="float-start mb-3 finish-date">
                 <h3 class="font-600 mb-n1">Fecha salida:</h3>
-                <h4 class="font-400 font-13 mb-n1 my-3"><i class="far fa-calendar"></i>{{ getDate(absence.startDate) }}</h4>
+                <h4 class="font-400 font-13 mb-n1 my-3"><i class="far fa-calendar"></i>{{ getDate(absence.start_date) }}</h4>
             </div>
             <div class="float-right mb-3">
                 <h3 class="font-600 mb-n1">Fecha vuelta:</h3>
-                <h4 class="font-400 font-13 mb-n1 my-3"><i class="far fa-calendar"></i>{{ getDate(absence.finishDate) }}</h4>
+                <h4 class="font-400 font-13 mb-n1 my-3"><i class="far fa-calendar"></i>{{ getDate(absence.finish_date) }}</h4>
             </div>
             <p>{{ absence.observations }}</p>
         </div>

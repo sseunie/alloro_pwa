@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         date(notification) {
-            return utils.formatDate(notification.createdAt)
+            return utils.formatDate(notification.created_at)
         },
         inInbox(id) {
             return this.$store.getters.inbox.notifications.includes(id)

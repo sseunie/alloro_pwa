@@ -47,10 +47,10 @@ export default {
     },
     methods: {
         date(incidence) {
-            return utils.formatDate(incidence.messages ? incidence.messages.at(-1).createdAt : incidence.createdAt)
+            return utils.formatDate(incidence.messages.length > 0 ? incidence.messages.at(-1).created_at : incidence.created_at)
         },
         lastMessage(incidence) {
-            return incidence.messages ? incidence.messages.at(-1).text : incidence.message
+            return incidence.messages.length > 0 ? incidence.messages.at(-1).text : incidence.message
         }
     },
     created() {
