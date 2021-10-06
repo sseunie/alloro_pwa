@@ -54,9 +54,13 @@ export default {
     },
 
     checkForValue(json, value) {
+        value = value.toLowerCase()
         for (let key in json) {
-            if (json[key].toString().includes(value)) {
-                return true
+            if (typeof json[key] === 'object' ) {
+                if (this.checkForValue(json[key], value)) return true;
+            }
+            else {
+                if (json[key].toString().toLowerCase().includes(value)) return true
             }
         }
         return false

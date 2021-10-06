@@ -26,6 +26,7 @@ export default {
     actions: {
         getIncidences: ({commit}) => {
             api.getIncidences().then(r => {
+                console.log(r.data)
                 commit('setIncidences', r.data)
             })
         },
