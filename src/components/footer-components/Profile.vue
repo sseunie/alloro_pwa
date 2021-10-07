@@ -3,7 +3,7 @@
         <div class="content">
             <div>
                 <h1 class="mb-0 pt-1">{{ user.name }}</h1>
-                <p class="color-highlight font-11 mt-n1 mb-1">{{ user.buildingName }}</p>
+                <p class="color-highlight font-11 mt-n1 mb-1">{{ user.building_name }}</p>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="input-style has-borders hnoas-icon input-style-always-active mb-4">
-                <input type="text" class="form-control" id="building" disabled :value="user.buildingName">
+                <input type="text" class="form-control" id="building" disabled :value="user.building_name">
                 <label for="building" class="color-highlight font-400 font-13">Edificio</label>
                 <i class="fa fa-times disabled invalid color-red-dark"></i>
                 <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="input-style has-borders hnoas-icon input-style-always-active mb-4">
-                <input type="text" class="form-control" id="phone" disabled :value="user.phoneNumber">
+                <input type="text" class="form-control" id="phone" disabled :value="user.phone_number">
                 <label for="phone" class="color-highlight font-400 font-13">Teléfono</label>
                 <i class="fa fa-times disabled invalid color-red-dark"></i>
                 <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -89,10 +89,10 @@ export default {
     created() {
         api.getUser(localStorage.getItem('userid')).then(r => {
             this.user = r.data;
-            this.phoneNumber = this.user.phoneNumber;
-            this.email = this.user.email;
         }).catch(e => {
             if (e.response.status === 401) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('userid');
                 this.$router.push('/login');
             }
         });
