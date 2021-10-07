@@ -22,24 +22,41 @@
         <em class="speech-read mb-1">{{ date(incidence) }}</em>
 
         <template v-for="(message, i) in incidence.messages" :key="i">
-            <div class="speech-bubble speech-right color-black">
-                {{ message.text }}
-            </div>
-            <div class="clearfix" />
-            <em class="speech-read read-left mb-2">{{ date(message) }}</em>
+            <template v-if="message.sender === 'residence'">
+                <div class="speech-bubble speech-right color-black">
+                    {{ message.text }}
+                </div>
+                <div class="clearfix" />
+                <em class="speech-read read-left mb-2">{{ date(message) }}</em>
+            </template>
+            <template v-else>
+                <div class="speech-bubble speech-left bg-highlight">
+                    {{ message.text }}
+                </div>
+                <div class="clearfix" />
+                <em class="speech-read read-right mb-2">{{ date(message) }}</em>
+            </template>
         </template>
 
         <div id="footer-bar" class="d-flex">
-            <div class="me-3 speach-icon">
-                <a href="#" data-menu="menu-upload" class="bg-gray-dark ms-2"><i class="fa fa-plus mt-2"></i></a>
-            </div>
-            <div class="flex-fill speach-input">
-                <input v-model="message" type="text" class="form-control" placeholder="Escribe tu mensaje...">
-            </div>
-            <div class="ms-3 speach-icon">
-                <a @click="sendMessage"
-                   class="bg-blue-dark me-2"><i class="fa fa-arrow-up mt-2"></i></a>
-            </div>
+            <template v-if="!incidence.closed">
+                <div class="me-3 speach-icon">
+                    <a href="#" data-menu="menu-upload" class="bg-gray-dark ms-2"><i class="fa fa-plus mt-2"></i></a>
+                </div>
+                <div class="flex-fill speach-input">
+                    <input v-model="message" type="text" class="form-control" placeholder="Escribe tu mensaje...">
+                </div>
+                <div class="ms-3 speach-icon">
+                    <a @click="sendMessage"
+                       class="bg-blue-dark me-2"><i class="fa fa-arrow-up mt-2"></i></a>
+                </div>
+            </template>
+
+            <template v-else>
+                <div class="flex-fill speach-input mx-4">
+                    <input disabled type="text" class="form-control" placeholder="Esta incidencia está cerrada">
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -88,6 +105,9 @@ export default {
 .read-left {
     text-align: left;
     margin-left: 10px;
+}
+.read-right {
+    text-align: right;
 }
 .speech-bubble {
     margin-bottom: 5px;
