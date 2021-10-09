@@ -35,18 +35,14 @@ export default {
                     commit('pushIncidence', r.data)
                 })
         },
+        updateIncidence: ({commit}, data) => {
+            commit('updateIncidence', data)
+        },
         updateIncidenceReadStatus: ({commit}, id) => {
             api.updateIncidenceReadStatus(id)
                 .then(() => {
                     commit('updateRead', id)
                 })
-        },
-        getUpdatedIncidences: ({commit}, ids) => {
-            ids.forEach(id => {
-                api.getIncidence(id).then(r => {
-                    commit('updateIncidence', r.data)
-                })
-            })
         },
         clearIncidences: ({commit}) => commit('setIncidences', [])
     }

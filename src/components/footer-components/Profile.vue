@@ -78,13 +78,17 @@ export default {
     },
     methods: {
         logout() {
+            this.disconnect(this.user.id)
             localStorage.removeItem('token');
             localStorage.removeItem('userid');
             this.$router.push('/homepage');
             this.$store.dispatch('clearIncidences');
             this.$store.dispatch('clearAbsences');
             this.$store.dispatch('clearInbox');
-        }
+        },
+        disconnect(id) {
+            this.$pusher.unsubscribe(`incidences.user.${id}`)
+        },
     },
     created() {
         api.getUser(localStorage.getItem('userid')).then(r => {

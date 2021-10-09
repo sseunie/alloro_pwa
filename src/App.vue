@@ -4,7 +4,7 @@
         <HeaderSpace />
         <router-view />
     </div>
-    <footer-menu />
+    <footer-menu v-if="$route.path !== '/login'"/>
 </template>
 
 <script>

@@ -22,6 +22,15 @@ export default {
         }
     },
     methods: {
+        connect() {
+            const userId = localStorage.getItem('userid')
+            if (userId) {
+                let channel = this.$pusher.subscribe(`incidences.user.${userId}`)
+                channel.bind('newMessage', data => {
+                    this.$store.dispatch('updateIncidence', data.incidence)
+                });
+            }
+        },
         fetchInbox() {
             this.$store.dispatch('getInbox').then(() => {
                 this.$store.dispatch('getUpdatedIncidences', this.$store.getters.inbox.incidences)
@@ -29,6 +38,7 @@ export default {
         }
     },
     created() {
+        this.connect()
         //this.fetchInbox()
         //setInterval(this.fetchInbox, 20000)
     }
