@@ -37,6 +37,19 @@ export default {
         return axios.post(`${API_URL}/incidences`, formData, config())
     },
 
+    sendIncidenceMessage(id, data) {
+        let formData = new FormData()
+        for (let key in data) {
+            if (key !== 'files') formData.append(key, data[key])
+        }
+        for (let key in data.files) {
+            formData.append('file[]', data.files[key])
+        }
+        console.log(data)
+        console.log(formData)
+        return axios.post(`${API_URL}/incidences/${id}/messages`, formData, config())
+    },
+
     createAbsence(data) {
         return axios.post(`${API_URL}/absences`, data, config())
     },
