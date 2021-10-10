@@ -45,8 +45,6 @@ export default {
         for (let key in data.files) {
             formData.append('file[]', data.files[key])
         }
-        console.log(data)
-        console.log(formData)
         return axios.post(`${API_URL}/incidences/${id}/messages`, formData, config())
     },
 
