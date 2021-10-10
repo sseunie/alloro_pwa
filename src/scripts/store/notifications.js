@@ -9,6 +9,9 @@ export default {
         notificationsByDate: (state) => {
             return state.notifications.sort(utils.compareDates)
         },
+        notificationsByTitle: (state) => {
+            return state.notifications.sort((a, b) => a.title.localeCompare(b.title))
+        },
         notification: (state) => (id) => {
             return state.notifications.find(notification => notification.id == id)
         }

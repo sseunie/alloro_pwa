@@ -4,6 +4,12 @@
         <input type="text" class="border-0" placeholder="Buscar..." v-model="search">
     </div>
 
+    <div class="d-flex flex-row-reverse">
+        <button @click="switchSortingMethod" class="sort-btn my-2">
+            Ordenar por {{ sortingByTitle ? 'fecha' : 'título' }}
+        </button>
+    </div>
+
     <div
         v-for="incidence in incidences"
         :key="incidence.id"
@@ -31,18 +37,16 @@ import utils from "@/scripts/utils";
 export default {
     name: "Messages",
     data: () => ({
-        search: ''
+        search: '',
+        sortingByTitle: false
     }),
     computed: {
         incidences() {
             const word = this.search.trim()
-            if (word === '') {
-                return this.$store.getters.incidences
-            } else {
-                return this.$store.getters.incidences.filter(i => {
-                    return utils.checkForValue(i, word)
-                })
-            }
+            const incidences = this.sortingByTitle ?
+                this.$store.getters.incidencesBySubject : this.$store.getters.incidences
+            if (word === '') return incidences
+            else return incidences.filter(i => utils.checkForValue(i, word))
         }
     },
     methods: {
@@ -51,6 +55,9 @@ export default {
         },
         lastMessage(incidence) {
             return incidence.messages.length > 0 ? incidence.messages.at(-1).text : incidence.message
+        },
+        switchSortingMethod() {
+            this.sortingByTitle = !this.sortingByTitle
         }
     },
     created() {
@@ -86,6 +93,11 @@ p.message-preview {
 }
 
 .search-box {
-    margin: 0 10px 12px 10px;
+    margin: 0 10px 0 10px;
+}
+.sort-btn {
+    margin-right: 25px;
+    font-weight: bold;
+    color: #05476D !important;
 }
 </style>

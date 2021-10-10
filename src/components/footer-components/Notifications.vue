@@ -4,6 +4,12 @@
         <input type="text" class="border-0" placeholder="Buscar..." v-model="search">
     </div>
 
+    <div class="d-flex flex-row-reverse">
+        <button @click="switchSortingMethod" class="sort-btn my-2">
+            Ordenar por {{ sortingByTitle ? 'fecha' : 'título' }}
+        </button>
+    </div>
+
     <div
         v-for="notification in notifications"
         :key="notification.id"
@@ -31,18 +37,16 @@ import utils from "@/scripts/utils";
 export default {
     name: "Notifications",
     data: () => ({
-        search: ''
+        search: '',
+        sortingByTitle: false
     }),
     computed: {
         notifications() {
             const word = this.search.trim()
-            if (word === '') {
-                return this.$store.getters.notificationsByDate
-            } else {
-                return this.$store.getters.notificationsByDate.filter(n => {
-                    return utils.checkForValue(n, word)
-                })
-            }
+            const notifications = this.sortingByTitle ?
+                this.$store.getters.notificationsByTitle : this.$store.getters.notificationsByDate
+            if (word === '') return notifications
+            else return notifications.filter(n => utils.checkForValue(n, word))
         }
     },
     methods: {
@@ -51,6 +55,9 @@ export default {
         },
         inInbox(id) {
             return this.$store.getters.inbox.notifications.includes(id)
+        },
+        switchSortingMethod() {
+            this.sortingByTitle = !this.sortingByTitle
         }
     },
     created() {
@@ -83,6 +90,11 @@ p.message-preview {
     text-overflow: ellipsis;
 }
 .search-box {
-    margin: 0 10px 12px 10px;
+    margin: 0 10px 0 10px;
+}
+.sort-btn {
+    margin-right: 25px;
+    font-weight: bold;
+    color: #05476D !important;
 }
 </style>

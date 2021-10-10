@@ -7,6 +7,7 @@ export default {
     },
     getters: {
         incidences: (state) => state.incidences.sort(utils.compareDates),
+        incidencesBySubject: (state) => state.incidences.sort((a, b) => a.subject.localeCompare(b.subject)),
         incidence: (state) => (id) => {
             return state.incidences.find(incidence => incidence.id == id)
         }
