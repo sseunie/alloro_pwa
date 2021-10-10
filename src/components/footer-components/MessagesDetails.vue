@@ -81,21 +81,19 @@ export default {
         },
         sendMessage() {
             this.message = ''
+        },
+        updateReadStatus() {
+            if (!this.incidence.read)
+            this.$store.dispatch('updateIncidenceReadStatus', this.incidence.id)
         }
     },
     created() {
         if (this.incidence === undefined) {
             this.$store.dispatch('getIncidences').then(() => {
-                this.$store.dispatch('updateIncidenceReadStatus', this.$route.params.id)
-                    .then(() => {
-                        this.$store.dispatch('removeIncidenceFromInbox', this.$route.params.id)
-                    })
+                this.updateReadStatus()
             })
         } else {
-            this.$store.dispatch('updateIncidenceReadStatus', this.$route.params.id)
-                .then(() => {
-                    this.$store.dispatch('removeIncidenceFromInbox', this.$route.params.id)
-                })
+            this.updateReadStatus()
         }
     }
 }

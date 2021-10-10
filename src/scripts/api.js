@@ -54,7 +54,7 @@ export default {
     },
 
     updateIncidenceReadStatus(id) {
-        return axios.patch(`${API_URL}/incidences/${id}`, { read: true }, config())
+        return axios.patch(`${API_URL}/incidences/${id}`, {}, config())
     },
 
     getInbox() {
