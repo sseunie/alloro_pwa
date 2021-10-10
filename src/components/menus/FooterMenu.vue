@@ -6,7 +6,7 @@
         </router-link>
         <router-link to="/messages">
             <i class="fas fa-comment"></i>
-            <!--<em v-if="inbox.incidences.length > 0" class="badge bg-highlight">{{ inbox.incidences.length }}</em>-->
+            <em v-if="numberOfNewMessages > 0" class="badge bg-highlight">{{ numberOfNewMessages }}</em>
         </router-link>
         <router-link to="/homepage"><i class="fa fa-home"></i></router-link>
         <router-link to="/profile"><i class="fas fa-user-circle"></i></router-link>
@@ -19,6 +19,9 @@ export default {
     computed: {
         inbox() {
             return this.$store.getters.inbox
+        },
+        numberOfNewMessages() {
+            return this.$store.getters.incidences.reduce((total, i) => total + (i.read ? 0 : 1), 0)
         }
     },
     methods: {
