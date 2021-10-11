@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         getDate(date) {
-            const fullDate = new Date(date)
+            const fullDate = new Date(date.replace(/\s/, 'T'))
             const month = months[fullDate.getMonth()]
             return `${fullDate.getDate()} de ${month}, ${fullDate.getFullYear()}.`
         }
