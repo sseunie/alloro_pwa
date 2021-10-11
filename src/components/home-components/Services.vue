@@ -8,7 +8,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <img class="img-fluid icon-image" src="../../assets/RIC-logo.png">
+                <img class="img-fluid icon-image" src="../../assets/residencia.png">
             </div>
         </div>
     </router-link>
@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <img class="img-fluid icon-image" src="../../assets/IMP-logo.png">
+                <img class="img-fluid icon-image" src="../../assets/imp.png">
             </div>
         </div>
     </router-link>
