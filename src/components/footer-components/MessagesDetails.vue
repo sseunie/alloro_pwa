@@ -70,6 +70,9 @@ export default {
             this.$store.dispatch('updateIncidenceReadStatus', this.incidence.id)
         }
     },
+    mounted() {
+        window.scrollTo(0,document.body.scrollHeight)
+    },
     created() {
         if (this.incidence === undefined) {
             this.$store.dispatch('getIncidences').then(() => {

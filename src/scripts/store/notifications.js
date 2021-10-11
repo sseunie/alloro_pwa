@@ -1,17 +1,11 @@
 import api from "@/scripts/api";
-import utils from "@/scripts/utils";
 
 export default {
     state: {
         notifications: []
     },
     getters: {
-        notificationsByDate: (state) => {
-            return state.notifications.sort(utils.compareDates)
-        },
-        notificationsByTitle: (state) => {
-            return state.notifications.sort((a, b) => a.title.localeCompare(b.title))
-        },
+        notifications: (state) => state.notifications,
         notification: (state) => (id) => {
             return state.notifications.find(notification => notification.id == id)
         }

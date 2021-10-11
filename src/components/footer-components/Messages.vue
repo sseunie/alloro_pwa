@@ -12,7 +12,7 @@
 
     <div
         v-for="incidence in incidences"
-        :key="incidence.id"
+        :key="`${incidence.id}`"
         class="card card-style"
     >
         <router-link :to="`/messages/${incidence.id}`">
@@ -44,7 +44,7 @@ export default {
         incidences() {
             const word = this.search.trim()
             const incidences = this.sortingByTitle ?
-                this.$store.getters.incidencesBySubject : this.$store.getters.incidences
+                this.incidencesBySubject() : this.incidencesByDate()
             if (word === '') return incidences
             else return incidences.filter(i => utils.checkForValue(i, word))
         }
@@ -58,10 +58,16 @@ export default {
         },
         switchSortingMethod() {
             this.sortingByTitle = !this.sortingByTitle
+        },
+        incidencesByDate() {
+            return this.$store.getters.incidences.sort(utils.compareDates)
+        },
+        incidencesBySubject() {
+            return this.$store.getters.incidences.sort((a, b) => a.subject.localeCompare(b.subject))
         }
     },
     created() {
-        if (this.$store.getters.incidences.length === 0) {
+        if (this.incidencesByDate().length === 0) {
             this.$store.dispatch('getIncidences')
         }
     }

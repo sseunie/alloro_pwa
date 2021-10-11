@@ -1,13 +1,11 @@
 import api from "@/scripts/api";
-import utils from "@/scripts/utils";
 
 export default {
     state: {
         incidences: []
     },
     getters: {
-        incidences: (state) => state.incidences.sort(utils.compareDates),
-        incidencesBySubject: (state) => state.incidences.sort((a, b) => a.subject.localeCompare(b.subject)),
+        incidences: (state) => state.incidences,
         incidence: (state) => (id) => {
             return state.incidences.find(incidence => incidence.id == id)
         }

@@ -44,7 +44,7 @@ export default {
         notifications() {
             const word = this.search.trim()
             const notifications = this.sortingByTitle ?
-                this.$store.getters.notificationsByTitle : this.$store.getters.notificationsByDate
+                this.notificationsByTitle() : this.notificationsByDate()
             if (word === '') return notifications
             else return notifications.filter(n => utils.checkForValue(n, word))
         }
@@ -58,6 +58,12 @@ export default {
         },
         switchSortingMethod() {
             this.sortingByTitle = !this.sortingByTitle
+        },
+        notificationsByDate() {
+            return this.$store.getters.notifications.sort(utils.compareDates)
+        },
+        notificationsByTitle() {
+            return this.$store.getters.notifications.sort((a, b) => a.title.localeCompare(b.title))
         }
     },
     created() {
