@@ -87,4 +87,9 @@ export default {
     position: relative;
     z-index: 2;
 }
+#footer-bar {
+    min-height: 85px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
 </style>

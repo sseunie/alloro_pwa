@@ -15,6 +15,7 @@ import Absences from "@/components/home-components/Absences";
 import Messages from "@/components/footer-components/Messages";
 import MessagesDetails from "@/components/footer-components/MessagesDetails";
 import NotificationDetails from "@/components/footer-components/NotificationDetails";
+import RoomState from "@/components/home-components/RoomState";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -32,6 +33,7 @@ const routes = [
     { path: '/absences', component: Absences, name: 'Ausencias' },
     { path: '/messages', component: Messages, name: 'Mensajes' },
     { path: '/messages/:id', component: MessagesDetails, name: 'Mensajes de la incidencia' },
+    { path: '/room-state', component: RoomState, name: 'Estado inicial de la habitación' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 

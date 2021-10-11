@@ -64,8 +64,6 @@
 </template>
 
 <script>
-import api from "@/scripts/api";
-
 export default {
     name: "Profile",
     data: () => ({
@@ -85,21 +83,21 @@ export default {
             this.$store.dispatch('clearIncidences');
             this.$store.dispatch('clearAbsences');
             this.$store.dispatch('clearInbox');
+            this.$store.dispatch('clearUser');
         },
         disconnect(id) {
             this.$pusher.unsubscribe(`incidences.user.${id}`)
         },
     },
     created() {
-        api.getUser(localStorage.getItem('userid')).then(r => {
-            this.user = r.data;
-        }).catch(e => {
-            if (e.response.status === 401) {
-                localStorage.removeItem('token');
-                localStorage.removeItem('userid');
-                this.$router.push('/login');
-            }
-        });
+        this.$store.dispatch('getUser')
+            .catch(e => {
+                if (e.response.status === 401) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userid');
+                    this.$router.push('/login');
+                }
+            });
     }
 }
 </script>

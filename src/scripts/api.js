@@ -80,7 +80,25 @@ export default {
     // path should be /users/:id/inbox, but json-server does not allow a patch on that path
     updateNotificationsFromInbox(notifications) {
         return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { notifications }, config())
-    }
+    },
+
+    getUserRoomInventory(id) {
+        return axios.get(`${API_URL}/users/${id}/inventory`, config());
+    },
+
+    sendUserRoomInitialState(id, data) {
+        let formData = new FormData()
+        formData.append('text', data.text)
+        for (let key in data.inventory) {
+            const name = data.inventory[key]
+            formData.append(name.replace(/\s+/g, '_'), data.checked.includes(name) ? "1" : "0")
+        }
+        for (let key in data.images) {
+            formData.append('images[]', data.images[key])
+        }
+
+        return axios.post(`${API_URL}/users/${id}/room`, formData, config());
+    },
 }
 
 function config() {

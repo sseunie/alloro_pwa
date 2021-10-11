@@ -49,4 +49,9 @@ export default {
 </script>
 
 <style scoped>
+#footer-bar {
+    min-height: 85px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
 </style>
