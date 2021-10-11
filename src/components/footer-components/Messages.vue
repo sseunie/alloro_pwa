@@ -51,10 +51,12 @@ export default {
     },
     methods: {
         date(incidence) {
-            return utils.formatDate(incidence.messages.length > 0 ? incidence.messages.at(-1).created_at : incidence.created_at)
+            return utils.formatDate(incidence.messages.length > 0 ?
+                incidence.messages[incidence.messages.length - 1].created_at : incidence.created_at)
         },
         lastMessage(incidence) {
-            return incidence.messages.length > 0 ? incidence.messages.at(-1).text : incidence.message
+            return incidence.messages.length > 0 ?
+                incidence.messages[incidence.messages.length - 1].text : incidence.message
         },
         switchSortingMethod() {
             this.sortingByTitle = !this.sortingByTitle
@@ -67,7 +69,7 @@ export default {
         }
     },
     created() {
-        if (this.incidencesByDate().length === 0) {
+        if (this.$store.getters.incidences.length === 0) {
             this.$store.dispatch('getIncidences')
         }
     }

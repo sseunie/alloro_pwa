@@ -1,7 +1,7 @@
 export default {
     compareDates(a, b) {
-        if (a.messages && a.messages.length !== 0) a = a.messages.at(-1)
-        if (b.messages && b.messages.length !== 0) b = b.messages.at(-1)
+        if (a.messages && a.messages.length !== 0) a = a.messages[a.messages.length - 1]
+        if (b.messages && b.messages.length !== 0) b = b.messages[b.messages.length - 1]
 
         if ( new Date(a.created_at) > new Date(b.created_at) ){
             return -1
