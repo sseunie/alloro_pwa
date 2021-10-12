@@ -16,6 +16,7 @@ import Messages from "@/components/footer-components/Messages";
 import MessagesDetails from "@/components/footer-components/MessagesDetails";
 import NotificationDetails from "@/components/footer-components/NotificationDetails";
 import RoomState from "@/components/home-components/RoomState";
+import RoomStateImages from "@/components/home-components/RoomStateImages";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -34,6 +35,7 @@ const routes = [
     { path: '/messages', component: Messages, name: 'Mensajes' },
     { path: '/messages/:id', component: MessagesDetails, name: 'Mensajes de la incidencia' },
     { path: '/room-state', component: RoomState, name: 'Estado inicial de la habitación' },
+    { path: '/room-state/images', component: RoomStateImages, name: 'Imágenes del estado inicial' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 
@@ -42,7 +44,7 @@ const router = createRouter({
     routes
 });
 
-const forbiddenRoutes = ['/profile', '/incidences', '/absences', '/messages'];
+const forbiddenRoutes = ['/profile', '/incidences', '/absences', '/messages', '/room-state', '/room-state/images'];
 
 router.beforeEach((to, from, next) => {
     if (forbiddenRoutes.includes(to.path) && localStorage.getItem('token') == null) {

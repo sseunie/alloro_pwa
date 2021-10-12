@@ -23,11 +23,11 @@
             </div>
         </div>
 
-        <button
+        <router-link
             v-if="hasImages"
-            @click="showImages"
+            to="/room-state/images"
             class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto mb-4 btn-send"
-        >Ver adjuntos</button>
+        >Ver imágenes</router-link>
     </div>
 </template>
 
@@ -48,9 +48,6 @@ export default {
     methods: {
         capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1)
-        },
-        showImages() {
-            console.log(true)
         }
     }
 }
