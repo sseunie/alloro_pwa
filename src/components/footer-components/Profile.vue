@@ -66,10 +66,10 @@
 <script>
 export default {
     name: "Profile",
-    data: () => ({
-        user: []
-    }),
     computed: {
+        user() {
+            return this.$store.getters.user
+        },
         userSurname() {
             return `${this.user.surname1} ${this.user.surname2}`;
         }
@@ -90,14 +90,16 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch('getUser')
-            .catch(e => {
-                if (e.response.status === 401) {
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('userid');
-                    this.$router.push('/login');
-                }
-            });
+        if (this.$store.getters.user.length === 0) {
+            this.$store.dispatch('getUser')
+                .catch(e => {
+                    if (e.response.status === 401) {
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('userid');
+                        this.$router.push('/login');
+                    }
+                });
+        }
     }
 }
 </script>

@@ -11,7 +11,7 @@ export default {
     },
     mutations: {
         setUser: (state, data) => state.user = data,
-        setRoomState: (state, data) => state.user.roomInitialState = data,
+        setRoomState: (state, data) => state.user['room_initial_state'] = data,
         setRoomInventory: (state, data) => state.roomInventory = data
     },
     actions: {
