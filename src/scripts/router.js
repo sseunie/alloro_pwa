@@ -17,6 +17,8 @@ import MessagesDetails from "@/components/footer-components/MessagesDetails";
 import NotificationDetails from "@/components/footer-components/NotificationDetails";
 import RoomState from "@/components/home-components/RoomState";
 import RoomStateImages from "@/components/home-components/RoomStateImages";
+import ResidenceChat from "@/components/footer-components/ResidenceChat";
+import Reservations from "@/components/home-components/Reservations";
 
 const routes = [
     { path: '/', component: LandingPage },
@@ -36,6 +38,7 @@ const routes = [
     { path: '/messages/:id', component: MessagesDetails, name: 'Mensajes de la incidencia' },
     { path: '/room-state', component: RoomState, name: 'Estado inicial de la habitación' },
     { path: '/room-state/images', component: RoomStateImages, name: 'Imágenes del estado inicial' },
+    { path: '/reservations', component: Reservations, name: 'Reservas' },
     { path: '/:pathMatch(.*)*', component: PageNotFound, name: 'Error 404' }
 ];
 

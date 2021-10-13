@@ -99,6 +99,18 @@ export default {
 
         return axios.post(`${API_URL}/users/${id}/room`, formData, config());
     },
+
+    getRoomTypes() {
+        return axios.get(`${API_URL}/reservationRoomTypes`, config());
+    },
+
+    getReservationsOf(roomName) {
+        return axios.get(`${API_URL}/reservations?type=${roomName}`, config());
+    },
+
+    getUserReservations(id) {
+        return axios.get(`${API_URL}/reservations?userId=${id}`, config());
+    },
 }
 
 function config() {

@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import utils from "@/scripts/utils";
+
 export default {
     name: "RoomStateView",
     computed: {
@@ -47,7 +49,7 @@ export default {
     },
     methods: {
         capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1)
+            return utils.capitalizeFirstLetter(string)
         }
     }
 }

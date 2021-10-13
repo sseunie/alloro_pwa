@@ -28,10 +28,6 @@ const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
 export default {
     name: "Absences",
     components: {AbsencesForm},
-    data: () => ({
-        dateStart: '',
-        dateFinish: '',
-    }),
     computed: {
         absences() {
             return this.$store.getters.absences

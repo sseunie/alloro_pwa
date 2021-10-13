@@ -4,6 +4,7 @@ import incidences from "@/scripts/store/incidences";
 import notifications from "@/scripts/store/notifications";
 import inbox from "@/scripts/store/inbox";
 import user from "@/scripts/store/user";
+import reservations from "@/scripts/store/reservations";
 
 export default createStore({
     modules: {
@@ -11,6 +12,7 @@ export default createStore({
         incidences,
         notifications,
         inbox,
-        user
+        user,
+        reservations
     }
 })

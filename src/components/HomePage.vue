@@ -27,6 +27,21 @@
         </div>
     </router-link>
 
+    <router-link to="/reservations" class="card card-style mb-3 d-flex" style="height: 100px;">
+        <div class="d-flex justify-content-between">
+            <div class="ps-3 ms-1 align-self-center">
+                <h4 class="font-600 mb-0 pt-4 mt-1">Reservas</h4>
+                <p class="color-highlight mt-n1 font-11">
+                    Reserva de estancias
+                </p>
+            </div>
+            <div class="pe-3 align-self-center">
+                <MDBIcon icon="clipboard-check" iconStyle="fas" size="3x" style="color: #FFB433;" />
+
+            </div>
+        </div>
+    </router-link>
+
     <router-link to="/room-state" class="card card-style mb-3 d-flex" style="height: 100px;">
         <div class="d-flex justify-content-between">
             <div class="ps-3 ms-1 align-self-center">
