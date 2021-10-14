@@ -17,7 +17,6 @@ import MessagesDetails from "@/components/footer-components/MessagesDetails";
 import NotificationDetails from "@/components/footer-components/NotificationDetails";
 import RoomState from "@/components/home-components/RoomState";
 import RoomStateImages from "@/components/home-components/RoomStateImages";
-import ResidenceChat from "@/components/footer-components/ResidenceChat";
 import Reservations from "@/components/home-components/Reservations";
 
 const routes = [

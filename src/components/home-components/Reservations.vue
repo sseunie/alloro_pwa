@@ -1,5 +1,7 @@
 <template>
-    <h4>Mis reservas</h4>
+    <ReservationForm />
+
+    <h3 class="text-center">Mis reservas</h3>
     <div
         v-for="reservation in reservations"
         :key="reservation.id"
@@ -21,12 +23,14 @@
 
 <script>
 import utils from "@/scripts/utils";
+import ReservationForm from "@/components/home-components/ReservationForm";
 
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
 export default {
     name: "Reservations",
+    components: {ReservationForm},
     computed: {
         reservations() {
             return this.$store.getters.reservations

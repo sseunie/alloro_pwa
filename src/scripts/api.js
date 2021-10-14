@@ -104,8 +104,8 @@ export default {
         return axios.get(`${API_URL}/reservationRoomTypes`, config());
     },
 
-    getReservationsOf(roomName) {
-        return axios.get(`${API_URL}/reservations?type=${roomName}`, config());
+    getReservationsOf(roomName, date) {
+        return axios.get(`${API_URL}/reservations?type=${roomName}&date=${date}`, config());
     },
 
     getUserReservations(id) {
