@@ -16,9 +16,33 @@
                     <i class="fas fa-user-clock" style="margin-left: 5px;"></i>{{ `${duration(reservation)}'` }}
                 </p>
             </div>
-            <p>{{ reservation.observations }}</p>
+            <div>
+                <button @click="promptConfirmation(reservation.id)"
+                        class="float-end btn btn-s rounded-s text-uppercase font-900 bg-red-dark"
+                >Cancelar</button>
+            </div>
         </div>
     </div>
+
+    <div id="menu-confirm" class="menu menu-box-modal menu-box-detached rounded-m"
+         :class="showCancel && 'menu-active'"
+         style="display: block; width: 310px; height: 110px;">
+        <h3 class="text-center font-700 mt-3 pt-1">¿Deseas cancelar la reserva?</h3>
+        <div class="row me-3 ms-3">
+            <div class="col-6">
+                <button @click="cancel"
+                        class="close-menu btn btn-sm btn-full button-s shadow-l rounded-s text-uppercase font-900 bg-green-dark"
+                >SÍ</button>
+            </div>
+            <div class="col-6">
+                <button @click="hideCancel"
+                        class="close-menu btn btn-sm btn-full button-s shadow-l rounded-s text-uppercase font-900 bg-red-dark"
+                >NO</button>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="showCancel" class="menu-hider menu-active"></div>
 </template>
 
 <script>
@@ -31,6 +55,10 @@ const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
 export default {
     name: "Reservations",
     components: {ReservationForm},
+    data: () => ({
+        showCancel: false,
+        cancelId: null
+    }),
     computed: {
         reservations() {
             return this.$store.getters.reservations
@@ -61,6 +89,18 @@ export default {
         },
         capitalizeFirstLetter(string) {
             return utils.capitalizeFirstLetter(string)
+        },
+        promptConfirmation(id) {
+            this.showCancel = true
+            this.cancelId = id
+        },
+        hideCancel() {
+            this.cancelId = null
+            this.showCancel = false
+        },
+        cancel() {
+            this.$store.dispatch('cancelReservation', this.cancelId)
+                .then(() => this.hideCancel())
         }
     },
     created() {
@@ -77,5 +117,9 @@ export default {
 <style scoped>
 div.date i {
     margin-right: 3px;
+}
+button.close-menu {
+    width: -webkit-fill-available;
+    width: -moz-available;
 }
 </style>

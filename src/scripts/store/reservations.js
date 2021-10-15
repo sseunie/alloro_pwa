@@ -13,6 +13,10 @@ export default {
         setReservations: (state, data) => state.reservations = data,
         pushReservation: (state, reservation) => state.reservations.push(reservation),
         setRoomTypes: (state, data) => state.roomTypes = data,
+        removeReservation: (state, id) => {
+            const i = state.reservations.map(r => r.id).indexOf(id)
+            state.reservations.splice(i, 1)
+        }
     },
     actions: {
         getRoomTypes: ({commit}) => {
@@ -28,6 +32,11 @@ export default {
         createReservation: ({commit}, data) => {
             console.log(commit)
             console.log(data)
+        },
+        cancelReservation: ({commit}, id) => {
+            api.cancelReservation(id).then(() => {
+                commit('removeReservation', id)
+            })
         },
         clearReservations: ({commit}) => commit('setReservations', [])
     }

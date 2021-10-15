@@ -111,6 +111,10 @@ export default {
     getUserReservations(id) {
         return axios.get(`${API_URL}/reservations?userId=${id}`, config());
     },
+
+    cancelReservation(id) {
+        return axios.delete(`${API_URL}/reservations/${id}`, config())
+    }
 }
 
 function config() {
