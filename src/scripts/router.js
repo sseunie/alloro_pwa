@@ -19,6 +19,7 @@ import RoomState from "@/components/home-components/RoomState";
 import RoomStateImages from "@/components/home-components/RoomStateImages";
 import Reservations from "@/components/home-components/Reservations";
 import ReservationsType from "@/components/home-components/ReservationsType";
+import ResidenceChat from "@/components/footer-components/ResidenceChat";
 
 const routes = [
     { path: '/', component: LandingPage, name: 'Landing' },
@@ -36,6 +37,7 @@ const routes = [
     { path: '/absences', component: Absences, name: 'Ausencias' },
     { path: '/messages', component: Messages, name: 'Mensajes' },
     { path: '/messages/:id', component: MessagesDetails, name: 'Mensajes de la incidencia' },
+    { path: '/messages/residence-chat', component: ResidenceChat, name: 'Chat con la Residencia' },
     { path: '/room-state', component: RoomState, name: 'Estado inicial de la habitación' },
     { path: '/room-state/images', component: RoomStateImages, name: 'Imágenes del estado inicial' },
     { path: '/reservations', component: Reservations, name: 'Reservas' },

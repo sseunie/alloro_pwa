@@ -1,5 +1,7 @@
 <template>
-    <div id="footer-bar" class="footer-bar-4" v-if="$route.path !== '/' && $route.name !== 'Mensajes de la incidencia'">
+    <div v-if="showFooterBar($route.name)"
+         id="footer-bar" class="footer-bar-4"
+    >
         <router-link to="/notifications">
             <i class="fas fa-bell"></i>
             <!--<em v-if="inbox.notifications.length > 0" class="badge bg-highlight">{{ inbox.notifications.length }}</em>-->
@@ -21,18 +23,30 @@ export default {
             return this.$store.getters.inbox
         },
         numberOfNewMessages() {
-            return this.$store.getters.incidences.reduce((total, i) => total + (i.read ? 0 : 1), 0)
+            const incidenceMessages = this.$store.getters.incidences.reduce((total, i) => total + (i.read ? 0 : 1), 0)
+            if (this.$store.getters.chat.read) {
+                return incidenceMessages
+            }
+            else return incidenceMessages + 1
         }
     },
     methods: {
         connect() {
             const userId = localStorage.getItem('userid')
             if (userId) {
-                let channel = this.$pusher.subscribe(`incidences.user.${userId}`)
-                channel.bind('newMessage', data => {
+                let channelIncidences = this.$pusher.subscribe(`incidences.user.${userId}`)
+                channelIncidences.bind('newMessage', data => {
                     this.$store.dispatch('updateIncidence', data.incidence)
                 });
+                let channelChat = this.$pusher.subscribe(`chat.${userId}`)
+                channelChat.bind('newChatMessage', data => {
+                    this.$store.dispatch('updateChat', data.chat)
+                });
             }
+        },
+        showFooterBar(path) {
+            const pathsWithoutHeader = ['Landing', 'Chat con la Residencia' , 'Mensajes de la incidencia']
+            return !pathsWithoutHeader.includes(path)
         },
         fetchInbox() {
             this.$store.dispatch('getInbox').then(() => {

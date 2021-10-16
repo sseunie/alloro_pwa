@@ -16,7 +16,7 @@ export default {
     name: "HeaderSpace",
     methods: {
         showHeaderSpace(path) {
-            const pathsWithoutHeader = ['Landing', 'Mensajes de la incidencia', 'Mensajes', 'Avisos']
+            const pathsWithoutHeader = ['Landing', 'Chat con la Residencia' , 'Mensajes de la incidencia', 'Mensajes', 'Avisos']
             return !pathsWithoutHeader.includes(path)
         },
     }

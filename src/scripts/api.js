@@ -68,20 +68,6 @@ export default {
         return axios.patch(`${API_URL}/incidences/${id}`, {}, config())
     },
 
-    getInbox() {
-        return axios.get(`${API_URL}/users/${localStorage.getItem('userid')}/inbox`)
-    },
-
-    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
-    updateIncidencesFromInbox(incidences) {
-        return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { incidences }, config())
-    },
-
-    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
-    updateNotificationsFromInbox(notifications) {
-        return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { notifications }, config())
-    },
-
     getUserRoomInventory(id) {
         return axios.get(`${API_URL}/users/${id}/inventory`, config());
     },
@@ -122,7 +108,39 @@ export default {
 
     getReservationsForType(type, userId) {
         return axios.get(`${API_URL}/reservations?type=${type}&userId=${userId}`, config())
-    }
+    },
+
+    getResidenceChat(userId) {
+        return axios.get(`${API_URL}/chats/${userId}`, config())
+    },
+
+    sendResidenceChatMessage(id, data) {
+        let formData = new FormData()
+        for (let key in data) {
+            if (key !== 'files') formData.append(key, data[key])
+        }
+        for (let key in data.files) {
+            formData.append('file[]', data.files[key])
+        }
+        return axios.post(`${API_URL}/chats/${id}`, formData, config())
+    },
+    updateChatReadStatus(id) {
+        return axios.patch(`${API_URL}/chats/${id}`, {}, config())
+    },
+
+    getInbox() {
+        return axios.get(`${API_URL}/users/${localStorage.getItem('userid')}/inbox`)
+    },
+
+    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
+    updateIncidencesFromInbox(incidences) {
+        return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { incidences }, config())
+    },
+
+    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
+    updateNotificationsFromInbox(notifications) {
+        return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { notifications }, config())
+    },
 }
 
 function config() {

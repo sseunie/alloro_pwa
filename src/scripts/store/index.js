@@ -5,6 +5,7 @@ import notifications from "@/scripts/store/notifications";
 import inbox from "@/scripts/store/inbox";
 import user from "@/scripts/store/user";
 import reservations from "@/scripts/store/reservations";
+import chat from "@/scripts/store/chat";
 
 export default createStore({
     modules: {
@@ -13,6 +14,7 @@ export default createStore({
         notifications,
         inbox,
         user,
-        reservations
+        reservations,
+        chat
     }
 })
