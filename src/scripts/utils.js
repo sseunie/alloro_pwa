@@ -11,7 +11,6 @@ export default {
         }
         return 0
     },
-
     formatDate(givenDate) {
         const fullDate = new Date(givenDate)
         const currentDate = new Date()
@@ -21,7 +20,6 @@ export default {
 
         const day = this.formatToTwoDigits(fullDate.getDate())
         const month = this.formatToTwoDigits(fullDate.getMonth() + 1)
-
 
         if (diffDays === 0 && diffMonths === 0 && diffYears === 0) {
             return this.getTime(fullDate)
@@ -57,7 +55,7 @@ export default {
         value = value.toLowerCase()
         for (let key in json) {
             if (typeof json[key] === 'object' ) {
-                if (this.checkForValue(json[key], value)) return true;
+                if (this.checkForValue(json[key], value)) return true
             }
             else {
                 if (json[key].toString().toLowerCase().includes(value)) return true
@@ -68,5 +66,32 @@ export default {
 
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
-    }
+    },
+
+    addTimeDuration(string, duration) {
+        const dHours = Math.trunc(duration/60)
+        const dMin = duration % 60
+
+        const initial = string.split(':')
+        const hours = parseInt(initial[0]) + dHours
+        const minutes = parseInt(initial[1]) + dMin
+
+        if (minutes === 60) {
+            return `${hours+1}:00`
+        }
+        return `${hours}:${this.formatToTwoDigits(minutes)}`
+    },
+
+    countOccurrences(array) {
+        return array.reduce((obj, item) => {
+            obj[item] = (obj[item] || 0) + 1
+            return obj
+        }, {})
+    },
+
+    getDateFrom(date) {
+        const month = date.getMonth() + 1
+        const day = date.getDate()
+        return `${date.getFullYear()}-${this.formatToTwoDigits(month)}-${this.formatToTwoDigits(day)}`
+    },
 }

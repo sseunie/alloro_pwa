@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import utils from "@/scripts/utils";
+
 const date = new Date()
 const year = date.getFullYear()
 const month = date.getMonth() + 1
@@ -81,12 +83,14 @@ export default {
         generalError: false,
         dateError: false,
         textareaError: false,
-        today: `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`,
         maxDate: `${year+5}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`
     }),
     computed: {
         bodyLength() {
             return this.body.length
+        },
+        today() {
+            return utils.getDateFrom(new Date())
         }
     },
     methods: {

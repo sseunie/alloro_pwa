@@ -3,19 +3,22 @@ import api from "@/scripts/api";
 export default {
     state: {
         reservations: [],
-        roomTypes: []
+        roomTypes: [],
+        reservationsForType: []
     },
     getters: {
         reservations: (state) => state.reservations,
-        roomTypes: (state) => state.roomTypes
+        roomTypes: (state) => state.roomTypes,
+        reservationsForType: (state) => state.reservationsForType
     },
     mutations: {
         setReservations: (state, data) => state.reservations = data,
         pushReservation: (state, reservation) => state.reservations.push(reservation),
         setRoomTypes: (state, data) => state.roomTypes = data,
+        setReservationsForType: (state, data) => state.reservationsForType = data,
         removeReservation: (state, id) => {
-            const i = state.reservations.map(r => r.id).indexOf(id)
-            state.reservations.splice(i, 1)
+            const i = state.reservationsForType.map(r => r.id).indexOf(id)
+            state.reservationsForType.splice(i, 1)
         }
     },
     actions: {
@@ -30,13 +33,26 @@ export default {
             })
         },
         createReservation: ({commit}, data) => {
-            console.log(commit)
-            console.log(data)
+            for (let key in data.time) {
+                let formData = new FormData()
+                formData.append('userId', data.userId)
+                formData.append('type', data.type)
+                formData.append('startDate', `${data.startDate} ${data.time[key]}:00.000000`)
+                api.createReservation(formData).then(r => {
+                    commit('pushReservation', r.data)
+                })
+            }
         },
         cancelReservation: ({commit}, id) => {
             api.cancelReservation(id).then(() => {
                 commit('removeReservation', id)
             })
+        },
+        getReservationsForType: ({commit}, {type, userId}) => {
+            return api.getReservationsForType(type, userId)
+                .then(r => {
+                    commit('setReservationsForType', r.data)
+                })
         },
         clearReservations: ({commit}) => commit('setReservations', [])
     }

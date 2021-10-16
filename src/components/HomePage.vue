@@ -8,7 +8,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="exclamation-triangle" iconStyle="fas" size="3x" style="color: #CB2E2D;" />
+                <MDBIcon icon="exclamation-triangle" iconStyle="fas" size="3x" style="color: #cb2e2d;" />
             </div>
         </div>
     </router-link>

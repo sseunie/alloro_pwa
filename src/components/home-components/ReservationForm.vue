@@ -7,10 +7,9 @@
             <div v-if="!showForm">
                 <button
                     @click="showForm = true"
-                    class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto my-4 btn-send"
+                    class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto my-4"
                 >Nueva reserva</button>
             </div>
-
 
             <div v-if="showForm">
                 <div class="input-style has-borders no-icon mb-4">
@@ -34,7 +33,8 @@
                 </div>
 
                 <div v-for="(hourList, i) in hourLists" :key="'list' + i">
-                    <div class="input-style has-borders no-icon mb-4">
+                    <div v-if="selectedRoom && startDate"
+                        class="input-style has-borders no-icon mb-4">
                         <label for="reservationHours" class="color-highlight">
                             {{ timeRange[i] ? (timeRange[i].name ?? 'Selecciona una hora') : '' }}
                         </label>
@@ -64,25 +64,7 @@
 <script>
 /* eslint-disable */
 import api from "@/scripts/api";
-
-const date = new Date()
-const year = date.getFullYear()
-const month = date.getMonth() + 1
-const day = date.getDate()
-
-function add(string, duration) {
-    const dHours = Math.trunc(duration/60)
-    const dMin = duration % 60
-
-    const initial = string.split(':')
-    const hours = parseInt(initial[0]) + dHours
-    const minutes = parseInt(initial[1]) + dMin
-
-    if (minutes === 60) {
-        return `${hours+1}:00`
-    }
-    return `${hours}:${minutes < 10 ? '0' + minutes : minutes}`
-}
+import utils from "@/scripts/utils";
 
 export default {
     name: "ReservationForm",
@@ -102,16 +84,12 @@ export default {
             return this.roomTypes[this.selectedRoom].time_range
         },
         today() {
-            return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`
+            return utils.getDateFrom(new Date())
         },
         maxDate() {
             const result = new Date()
             result.setDate(result.getDate() + 7)
-            const year = result.getFullYear()
-            const month = result.getMonth() + 1
-            const day = result.getDate()
-
-            return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`
+            return utils.getDateFrom(result)
         }
     },
     watch: {
@@ -133,11 +111,12 @@ export default {
                 this.showForm = false
                 this.selectedRoom = 'default'
                 this.startDate = null
+                this.selectedTime = []
             })
         },
         getHourList(string, duration, index) {
             if (this.selectedRoom !== 'default') {
-                const hour = add(string, duration)
+                const hour = utils.addTimeDuration(string, duration)
                 if (hour === this.timeRange[index].to) return `${string},${hour}`
                 return `${string},${this.getHourList(hour, duration, index)}`
             }
@@ -150,10 +129,20 @@ export default {
                 reservationDates = await api.getReservationsOf(this.selectedRoom, this.startDate).then(r => r.data)
             }
 
-            let notAvailableHourList = []
+            const capacity = this.roomTypes[this.selectedRoom].capacity
+
+            let reservationList = []
+
             for (let i = 0; i < reservationDates.length; i++) {
                 let time = reservationDates[i].start_date.split(' ')[1].substring(0, 5)
-                notAvailableHourList.push(time)
+                reservationList.push(time)
+            }
+
+            const occurrences = utils.countOccurrences(reservationList)
+            let notAvailableHourList = []
+
+            for (let time in occurrences) {
+                if (occurrences[time] >= capacity) notAvailableHourList.push(time)
             }
 
             let availableHourList = []

@@ -114,6 +114,14 @@ export default {
 
     cancelReservation(id) {
         return axios.delete(`${API_URL}/reservations/${id}`, config())
+    },
+
+    createReservation(data) {
+        return axios.post(`${API_URL}/reservations`, data, config())
+    },
+
+    getReservationsForType(type, userId) {
+        return axios.get(`${API_URL}/reservations?type=${type}&userId=${userId}`, config())
     }
 }
 
