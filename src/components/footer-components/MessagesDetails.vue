@@ -39,7 +39,10 @@
 
                 <template v-for="(file, i) in message.files" :key="`m-file${i}`">
                     <div class="speech-bubble speach-image speech-left bg-highlight">
-                        <img class="img-fluid preload-img" :src="file.url" alt="img">
+                        <img v-if="file.mime_type.includes('image')" class="img-fluid preload-img" :src="file.url" alt="img">
+                        <audio v-else controls>
+                            <source :src="file.url" :type="file.mime_type">
+                        </audio>
                     </div>
                     <div class="clearfix" />
                 </template>
