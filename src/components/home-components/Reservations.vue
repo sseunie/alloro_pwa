@@ -10,7 +10,7 @@
                     :key="type.name"
                 >
                     <router-link :to="`/reservations/${type.name}`"
-                                 class="btn rounded-s text-uppercase font-900 bg-red-dark col type-btn"
+                                 class="btn rounded-s text-uppercase font-900 bg-highlight col type-btn"
                     >{{ type.name }}</router-link>
                 </template>
             </div>

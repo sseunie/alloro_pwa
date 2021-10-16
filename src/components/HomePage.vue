@@ -8,7 +8,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="exclamation-triangle" iconStyle="fas" size="3x" style="color: #cb2e2d;" />
+                <MDBIcon icon="exclamation-circle" iconStyle="fas" size="3x" style="color: #FFB433;" />
             </div>
         </div>
     </router-link>
@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="calendar-times" iconStyle="fas" size="3x" style="color: #7FB2D0;" />
+                <MDBIcon icon="calendar-times" iconStyle="fas" size="3x" style="color: #05476D;" />
             </div>
         </div>
     </router-link>
@@ -36,7 +36,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="clipboard-check" iconStyle="fas" size="3x" style="color: #FFB433;" />
+                <MDBIcon icon="calendar-check" iconStyle="fas" size="3x" style="color: #787B7D;" />
 
             </div>
         </div>
@@ -51,7 +51,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="clipboard-check" iconStyle="fas" size="3x" style="color: #FFB433;" />
+                <MDBIcon icon="list-alt" iconStyle="fas" size="3x" style="color: #FFB433;" />
 
             </div>
         </div>
@@ -66,7 +66,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="box" iconStyle="fas" size="3x" style="color: #377B33;" />
+                <MDBIcon icon="box" iconStyle="fas" size="3x" style="color: #05476D;" />
             </div>
         </div>
     </router-link>
@@ -80,7 +80,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="info-circle" iconStyle="fas" size="3x" style="color: #FFD07F;" />
+                <MDBIcon icon="info-circle" iconStyle="fas" size="3x" style="color: #787B7D;" />
             </div>
         </div>
     </router-link>
@@ -94,7 +94,7 @@
                 </p>
             </div>
             <div class="pe-3 align-self-center">
-                <MDBIcon icon="cog" iconStyle="fas" size="3x" style="color: #9C6609;" />
+                <MDBIcon icon="cog" iconStyle="fas" size="3x" style="color: #FFB433;" />
             </div>
         </div>
     </router-link>
