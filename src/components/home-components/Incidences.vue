@@ -53,7 +53,7 @@
                 <label for="incidence-image" class="color-highlight mx-1">Imágenes</label>
                 <input
                     type="file" class="form-control" id="incidence-image"
-                    accept="image/*" multiple
+                    accept="image/*,audio/*" multiple
                     ref="incidenceImages"
                 >
             </div>

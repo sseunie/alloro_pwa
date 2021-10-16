@@ -8,7 +8,10 @@
 
         <template v-for="(file, i) in incidence.files" :key="`file${i}`">
             <div class="speech-bubble speach-image speech-left bg-highlight">
-                <img class="img-fluid preload-img" :src="file.url" alt="img">
+                <img v-if="file.mime_type.includes('image')" class="img-fluid preload-img" :src="file.url" alt="img">
+                <audio v-else controls>
+                    <source :src="file.url" :type="file.mime_type">
+                </audio>
             </div>
             <div class="clearfix" />
         </template>
@@ -103,5 +106,20 @@ export default {
 }
 .subtitle > p {
     margin-bottom: 0;
+}
+audio {
+    width: 400px;
+    height: 50px;
+    margin: 8px;
+}
+@media (max-width: 600px) {
+    audio {
+        width: 220px;
+    }
+}
+@media (max-width: 350px) {
+    audio {
+        width: 175px;
+    }
 }
 </style>
