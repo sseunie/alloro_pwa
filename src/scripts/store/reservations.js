@@ -2,18 +2,14 @@ import api from "@/scripts/api";
 
 export default {
     state: {
-        reservations: [],
         roomTypes: [],
         reservationsForType: []
     },
     getters: {
-        reservations: (state) => state.reservations,
         roomTypes: (state) => state.roomTypes,
         reservationsForType: (state) => state.reservationsForType
     },
     mutations: {
-        setReservations: (state, data) => state.reservations = data,
-        pushReservation: (state, reservation) => state.reservations.push(reservation),
         setRoomTypes: (state, data) => state.roomTypes = data,
         setReservationsForType: (state, data) => state.reservationsForType = data,
         removeReservation: (state, id) => {
@@ -27,20 +23,13 @@ export default {
                 commit('setRoomTypes', r.data)
             })
         },
-        getReservations: ({commit}) => {
-            api.getUserReservations(localStorage.getItem('userid')).then(r => {
-                commit('setReservations', r.data)
-            })
-        },
-        createReservation: ({commit}, data) => {
+        createReservation: (data) => {
             for (let key in data.time) {
                 let formData = new FormData()
                 formData.append('userId', data.userId)
                 formData.append('type', data.type)
                 formData.append('startDate', `${data.startDate} ${data.time[key]}:00.000000`)
-                api.createReservation(formData).then(r => {
-                    commit('pushReservation', r.data)
-                })
+                api.createReservation(formData).then()
             }
         },
         cancelReservation: ({commit}, id) => {
@@ -53,7 +42,6 @@ export default {
                 .then(r => {
                     commit('setReservationsForType', r.data)
                 })
-        },
-        clearReservations: ({commit}) => commit('setReservations', [])
+        }
     }
 }
