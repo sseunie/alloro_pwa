@@ -51,6 +51,8 @@
                     </div>
                 </div>
 
+                <p v-if="error" class="color-red-dark text-center my-2">Debes rellenar todos los campos</p>
+
                 <button
                     @click="send"
                     class="btn btn-full btn-margins bg-highlight rounded-sm btn-m text-uppercase font-900 mx-auto my-4 btn-send"
@@ -73,7 +75,8 @@ export default {
         selectedRoom: 'default',
         startDate: null,
         selectedTime: [],
-        hourLists: []
+        hourLists: [],
+        error: false
     }),
     computed: {
         roomTypes() {
@@ -102,64 +105,72 @@ export default {
     },
     methods: {
         send() {
-            this.$store.dispatch('createReservation', {
+            if(this.selectedRoom !== 'default' && this.validSelectedTime() && this.startDate) {
+                this.$store.dispatch('createReservation', this.data()).then(() => {
+                    this.showForm = false
+                    this.selectedRoom = 'default'
+                    this.startDate = null
+                    this.selectedTime = []
+                    this.error = false
+                })
+            } else {
+                this.error = true
+            }
+        },
+        data() {
+            return {
                 userId: localStorage.getItem('userid'),
                 type: this.selectedRoom,
                 startDate: this.startDate,
                 time: this.selectedTime
-            }).then(() => {
-                this.showForm = false
-                this.selectedRoom = 'default'
-                this.startDate = null
-                this.selectedTime = []
-            })
+            }
         },
-        getHourList(string, duration, index) {
+        validSelectedTime() {
+            for(let key in this.selectedTime) {
+                if (this.selectedTime[key] === 'default') return false
+            }
+            return true
+        },
+        getHourList(string, duration, lastHour) {
             if (this.selectedRoom !== 'default') {
                 const hour = utils.addTimeDuration(string, duration)
-                if (hour === this.timeRange[index].to) return `${string},${hour}`
-                return `${string},${this.getHourList(hour, duration, index)}`
+                if (hour === lastHour) return `${string},${hour}`
+                return `${string},${this.getHourList(hour, duration, lastHour)}`
             }
         },
-        async getAvailableHourList(string, duration, index) {
-            const completeList = this.getHourList(string, duration, index).split(',')
-
-            let reservationDates = []
-            if(this.selectedRoom !== 'default' && this.startDate != null) {
-                reservationDates = await api.getReservationsOf(this.selectedRoom, this.startDate).then(r => r.data)
-            }
-
-            const capacity = this.roomTypes[this.selectedRoom].capacity
-
-            let reservationList = []
-
-            for (let i = 0; i < reservationDates.length; i++) {
-                let time = reservationDates[i].start_date.split(' ')[1].substring(0, 5)
-                reservationList.push(time)
-            }
-
-            const occurrences = utils.countOccurrences(reservationList)
-            let notAvailableHourList = []
-
-            for (let time in occurrences) {
-                if (occurrences[time] >= capacity) notAvailableHourList.push(time)
-            }
-
+        async getAvailableHourList(string, duration, to) {
+            const completeHourList = this.getHourList(string, duration, to).split(',')
+            let reservedHours = []
             let availableHourList = []
-            for (let i = 0; i < completeList.length; i++) {
-                if (!notAvailableHourList.includes(completeList[i])) availableHourList.push(completeList[i])
+
+            if(this.selectedRoom !== 'default' && this.startDate != null) {
+                reservedHours = await api.getReservationsOf(this.selectedRoom, this.startDate).then(r => r.data)
             }
 
+            reservedHours = reservedHours.map(x => x.start_date.split(' ')[1].substring(0, 5))
+            const unavailableHourList = this.checkIfCapacityFull(reservedHours, this.roomTypes[this.selectedRoom].capacity)
+
+            for (let key in completeHourList) {
+                if (!unavailableHourList.includes(completeHourList[key])) availableHourList.push(completeHourList[key])
+            }
             return availableHourList
         },
         async setHourList() {
             if (this.selectedRoom !== 'default' && this.startDate != null) {
                 this.hourLists = []
                 for (let i = 0; i < this.timeRange.length; i++) {
-                    const times = await this.getAvailableHourList(this.timeRange[i].from, this.roomTypes[this.selectedRoom].duration, i)
-                    this.hourLists.push(times)
+                    const availableHours = await this.getAvailableHourList(this.timeRange[i].from, this.roomTypes[this.selectedRoom].duration, this.timeRange[i].to)
+                    this.hourLists.push(availableHours)
                 }
             }
+        },
+        checkIfCapacityFull(unavailableHourList, capacity) {
+            const occurrences = utils.countOccurrences(unavailableHourList)
+            let notAvailableHourList = []
+            for (let time in occurrences) {
+                if (occurrences[time] >= capacity) notAvailableHourList.push(time)
+            }
+            return notAvailableHourList
         }
     },
 }

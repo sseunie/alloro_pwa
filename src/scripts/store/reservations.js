@@ -1,5 +1,6 @@
 import api from "@/scripts/api";
 
+/* eslint-disable */
 export default {
     state: {
         roomTypes: [],
@@ -23,7 +24,7 @@ export default {
                 commit('setRoomTypes', r.data)
             })
         },
-        createReservation: (data) => {
+        createReservation: ({commit}, data) => {
             for (let key in data.time) {
                 let formData = new FormData()
                 formData.append('userId', data.userId)
