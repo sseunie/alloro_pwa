@@ -45,12 +45,12 @@
                     :class="bodyLength > 150 && 'red-border'"
                     id="incidence-text"
                     placeholder="Escribe aquí tu mensaje..."></textarea>
-                <label for="incidence-text" class="color-highlight">Cuerpo</label>
+                <label for="incidence-text" class="color-highlight">Mensaje</label>
             </div>
             <div><p class="char-counter" :class="bodyLength > 150 && 'color-red-dark'">{{ bodyLength }}/150</p></div>
 
             <div class="has-borders no-icon my-3">
-                <label for="incidence-image" class="color-highlight mx-1">Imágenes</label>
+                <label for="incidence-image" class="color-highlight mx-1">Imágenes o audios</label>
                 <input
                     type="file" class="form-control" id="incidence-image"
                     accept="image/*,audio/*" multiple
