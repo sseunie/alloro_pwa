@@ -84,7 +84,6 @@ export default {
             this.$store.dispatch('clearAbsences');
             this.$store.dispatch('clearInbox');
             this.$store.dispatch('clearUser');
-            this.$store.dispatch('clearReservations');
         },
         disconnect(id) {
             this.$pusher.unsubscribe(`incidences.user.${id}`)

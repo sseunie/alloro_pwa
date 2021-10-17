@@ -124,8 +124,13 @@ export default {
         }
         return axios.post(`${API_URL}/chats/${id}`, formData, config())
     },
+
     updateChatReadStatus(id) {
         return axios.patch(`${API_URL}/chats/${id}`, {}, config())
+    },
+
+    getRoomStateFinishDate() {
+        return axios.get(`${API_URL}/roomState-date/${localStorage.getItem('userid')}`, config())
     },
 
     getInbox() {
