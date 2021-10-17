@@ -42,7 +42,7 @@ export default {
     methods: {
         sendMessage() {
             const message = this.message.trim()
-            if (message.length > 0 && this.filesSelected <= 3) {
+            if (message.length > 0 || this.filesSelected <= 3) {
                 this.$store.dispatch('sendResidenceChatMessage', {
                     id: this.chat.id,
                     data: {

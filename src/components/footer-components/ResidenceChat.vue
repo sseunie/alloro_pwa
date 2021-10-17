@@ -2,15 +2,17 @@
     <div class="content" v-if="chat">
         <template v-for="(message, i) in chat.messages" :key="i">
             <template v-if="message.sender === 'residence'">
-                <div class="speech-bubble speech-right color-black">
-                    {{ message.text }}
-                </div>
-                <div class="clearfix" />
-                <em class="speech-read read-left mb-2">{{ date(message) }}</em>
+                <template v-if="message.text">
+                    <div class="speech-bubble speech-right color-black">
+                        {{ message.text }}
+                    </div>
+                    <div class="clearfix" />
+                    <em class="speech-read read-left mb-2">{{ date(message) }}</em>
+                </template>
             </template>
 
             <template v-else>
-                <div v-if="message.text.length > 0" class="speech-bubble speech-left bg-highlight">
+                <div v-if="message.text" class="speech-bubble speech-left bg-highlight">
                     {{ message.text }}
                 </div>
                 <div class="clearfix" />
