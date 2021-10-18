@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="input-style has-borders no-icon mb-4">
-                    <label for="startDate" class="color-highlight">Salida</label>
+                    <label for="startDate" class="color-highlight">Fecha</label>
                     <input v-model="startDate" type="date" @change="setHourList"
                            :min="today" :max="maxDate" class="form-control" id="startDate">
                 </div>
@@ -52,6 +52,7 @@
                 </div>
 
                 <p v-if="error" class="color-red-dark text-center my-2">Debes rellenar todos los campos</p>
+                <p v-if="errorDate" class="color-red-dark text-center my-2">La fecha seleccionada debe ser entre hoy y los próximos 7 días. </p>
 
                 <button
                     @click="send"
@@ -76,7 +77,8 @@ export default {
         startDate: null,
         selectedTime: [],
         hourLists: [],
-        error: false
+        error: false,
+        errorDate: false
     }),
     computed: {
         roomTypes() {
@@ -105,13 +107,17 @@ export default {
     },
     methods: {
         send() {
-            if(this.selectedRoom !== 'default' && this.validSelectedTime() && this.startDate) {
+            if(this.startDate < this.today || this.startDate > this.maxDate) {
+                this.errorDate = true
+            }
+            else if(this.selectedRoom !== 'default' && this.validSelectedTime() && this.startDate) {
                 this.$store.dispatch('createReservation', this.data()).then(() => {
                     this.showForm = false
                     this.selectedRoom = 'default'
                     this.startDate = null
                     this.selectedTime = []
                     this.error = false
+                    this.errorDate = false
                 })
             } else {
                 this.error = true

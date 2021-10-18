@@ -78,7 +78,7 @@ export default {
             if (this.selectedDate) {
                 const selected = new Date(this.selectedDate)
                 return this.$store.getters.reservationsForType
-                    .filter(e => utils.getDateFrom(new Date(e.start_date)) === utils.getDateFrom(selected))
+                    .filter(e => utils.getDateFrom(new Date(e.start_date.replace(/\s/, 'T'))) === utils.getDateFrom(selected))
             }
             return this.$store.getters.reservationsForType
         },
