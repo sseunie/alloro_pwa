@@ -1,13 +1,13 @@
 <template>
     <template v-if="show">
-        <div v-if="dateNotValid() && !roomStateSent" class="card card-style">
+        <div v-if="dateNotValid(new Date(roomStateFinishDate)) && !roomStateSent" class="card card-style">
             <div class="content mb-0">
                 <h3>Estado inicial de la habitación</h3>
                 <p class="mb-3">Ha terminado el plazo para rellenar el estado inicial de la habitación. </p>
             </div>
         </div>
 
-        <div v-if="!roomStateSent"
+        <div v-else-if="!roomStateSent"
              class="card card-style">
             <div class="content mb-0">
                 <h3>Estado inicial de la habitación</h3>
@@ -61,7 +61,7 @@
                 Fecha límite para rellenar el formulario:
             </p>
             <p class="mb-3 mt-n3 text-center font-14 color-red-light">
-                <i class="far fa-calendar"></i>{{getDate(new Date(roomStateFinishDate))}}
+                <i class="far fa-calendar"></i>{{getDate(roomStateFinishDate)}}
             </p>
         </div>
 
@@ -165,16 +165,17 @@ export default {
         toggleCancelMenu() {
             this.showConfirmation = false
         },
-        dateNotValid() {
+        dateNotValid(date) {
             const today = new Date()
-            return today > new Date(this.roomStateFinishDate)
+            return today > date
         },
         date(date) {
             return utils.getDateFrom(date)
         },
         getDate(date) {
-            const month = months[date.getMonth()]
-            return `${date.getDate()} de ${month}`
+            const fullDate = new Date(date.replace(/\s/, 'T'))
+            const month = months[fullDate.getMonth()]
+            return `${fullDate.getDate()} de ${month}`
         },
     },
     created() {
