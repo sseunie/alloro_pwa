@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="input-style has-borders no-icon mb-4">
-                    <label for="startDate" class="color-highlight">Salida</label>
+                    <label for="startDate" class="color-highlight">Fecha</label>
                     <input v-model="startDate" type="date" @change="setHourList"
                            :min="today" :max="maxDate" class="form-control" id="startDate">
                 </div>
