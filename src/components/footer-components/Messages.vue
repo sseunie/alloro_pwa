@@ -78,8 +78,10 @@ export default {
                 incidence.messages[incidence.messages.length - 1].text : incidence.message
         },
         lastChatMessage(chat) {
-            return chat.messages.length > 0 ?
-                chat.messages[chat.messages.length - 1].text : ''
+            if(chat.messages.length > 0) {
+                return chat.messages[chat.messages.length - 1].text ?? 'Fichero adjunto'
+            }
+            return ''
         },
         switchSortingMethod() {
             this.sortingByTitle = !this.sortingByTitle

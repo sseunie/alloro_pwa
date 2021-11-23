@@ -11,23 +11,6 @@
                         <label class="custom-control-label" for="switch-1"></label>
                     </div>
                 </div>
-                <div>
-                    <span>Newsletter</span>
-                    <div class="custom-control scale-switch ios-switch">
-                        <input type="checkbox" class="ios-input" id="switch-2">
-                        <label class="custom-control-label" for="switch-2"></label>
-                    </div>
-                </div>
-                <div class="border-0">
-                    <span>Modo noche</span>
-                    <div class="ms-auto me-4 pe-2">
-                        <div class="custom-control ios-switch scale-switch">
-                            <input type="checkbox" class="ios-input" id="toggle-dark12">
-                            <label class="custom-control-label" for="toggle-dark12"></label>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

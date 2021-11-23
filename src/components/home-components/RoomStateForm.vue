@@ -138,10 +138,10 @@ export default {
     },
     methods: {
         send(checkInventory=true) {
-            if (checkInventory && this.checkedInventory.length === 0) {
-                this.showConfirmation = true
-            } else if (this.text.trim().length === 0) {
+            if(this.text.trim().length === 0) {
                 this.error = 'Debes rellenar el formulario'
+            } else if (checkInventory && this.checkedInventory.length === 0) {
+                this.showConfirmation = true
             } else {
                 this.$store.dispatch('setRoomState', {
                     text: this.text,
@@ -164,6 +164,7 @@ export default {
         },
         toggleCancelMenu() {
             this.showConfirmation = false
+            this.error = null
         },
         dateNotValid(date) {
             const today = new Date()

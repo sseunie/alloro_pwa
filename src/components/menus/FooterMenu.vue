@@ -27,7 +27,7 @@ export default {
             if (this.$store.getters.chat.read) {
                 return incidenceMessages
             }
-            else return incidenceMessages + 1
+            else return 0
         }
     },
     methods: {
