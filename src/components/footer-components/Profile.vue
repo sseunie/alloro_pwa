@@ -87,6 +87,7 @@ export default {
         },
         disconnect(id) {
             this.$pusher.unsubscribe(`incidences.user.${id}`)
+            this.$pusher.unsubscribe(`chat.${id}`)
         },
     },
     created() {
