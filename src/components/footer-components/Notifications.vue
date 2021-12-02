@@ -19,7 +19,6 @@
             <div class="content">
                 <div class="d-flex justify-content-between">
                     <h4 class="mb-3">{{ notification.title }}</h4>
-                    <i v-if="inInbox(notification.id)" class="fas fa-exclamation-circle unread"></i>
                 </div>
 
                 <div class="d-flex justify-content-between">
@@ -52,9 +51,6 @@ export default {
     methods: {
         date(notification) {
             return utils.formatDate(notification.created_at)
-        },
-        inInbox(id) {
-            return this.$store.getters.inbox.notifications.includes(id)
         },
         switchSortingMethod() {
             this.sortingByTitle = !this.sortingByTitle

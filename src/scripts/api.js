@@ -132,20 +132,6 @@ export default {
     getRoomStateFinishDate() {
         return axios.get(`${API_URL}/roomState-date/${localStorage.getItem('userid')}`, config())
     },
-
-    getInbox() {
-        return axios.get(`${API_URL}/users/${localStorage.getItem('userid')}/inbox`)
-    },
-
-    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
-    updateIncidencesFromInbox(incidences) {
-        return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { incidences }, config())
-    },
-
-    // path should be /users/:id/inbox, but json-server does not allow a patch on that path
-    updateNotificationsFromInbox(notifications) {
-        return axios.patch(`${API_URL}/inbox/${localStorage.getItem('userid')}`, { notifications }, config())
-    },
 }
 
 function config() {

@@ -5,7 +5,6 @@ import PageNotFound from "@/components/PageNotFound";
 import Notifications from "@/components/footer-components/Notifications";
 import Profile from "@/components/footer-components/Profile";
 import Login from "@/components/Login";
-import Settings from "@/components/home-components/Settings";
 import Information from "@/components/home-components/Information";
 import Services from "@/components/home-components/Services";
 import ResidencesInformation from "@/components/home-components/ResidencesInformation";
@@ -28,7 +27,6 @@ const routes = [
     { path: '/notifications/:id', component: NotificationDetails, name: 'Aviso' },
     { path: '/profile', component: Profile, name: 'Perfil' },
     { path: '/login', component: Login, name: 'Iniciar sesión' },
-    { path: '/settings', component: Settings, name: 'Ajustes' },
     { path: '/info', component: Information, name: 'Información' },
     { path: '/services', component: Services, name: 'Servicios' },
     { path: '/services/residences', component: ResidencesInformation, name: 'Residencias' },

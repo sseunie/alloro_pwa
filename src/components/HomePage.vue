@@ -85,20 +85,6 @@
         </div>
     </router-link>
 
-    <router-link to="/settings" class="card card-style mb-3 d-flex" style="height: 100px;">
-        <div class="d-flex justify-content-between">
-            <div class="ps-3 ms-1 align-self-center">
-                <h4 class="font-600 mb-0 pt-4 mt-1">Ajustes</h4>
-                <p class="color-highlight mt-n1 font-11">
-                    Preferencias de la aplicación
-                </p>
-            </div>
-            <div class="pe-3 align-self-center">
-                <MDBIcon icon="cog" iconStyle="fas" size="3x" style="color: #FFB433;" />
-            </div>
-        </div>
-    </router-link>
-
     <Footer />
 </template>
 

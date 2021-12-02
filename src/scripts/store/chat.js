@@ -35,6 +35,7 @@ export default {
                 .then(r => {
                     commit('pushResidenceChatMessage', r.data)
                 })
-        }
+        },
+        clearChat: ({commit}) => commit('setChat', [])
     }
 }

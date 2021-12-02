@@ -46,6 +46,11 @@ export default {
             return this.$store.getters.chat
         }
     },
+    watch: {
+        chat() {
+            this.updateReadStatus()
+        }
+    },
     methods: {
         date(object) {
             return utils.formatDateTime(object.created_at)
@@ -54,10 +59,13 @@ export default {
             if (!this.chat.read) {
                 this.$store.dispatch('updateChatReadStatus', this.chat.id)
             }
+        },
+        scrollToBottom() {
+            window.scrollTo(0,document.body.scrollHeight)
         }
     },
     mounted() {
-        window.scrollTo(0,document.body.scrollHeight)
+        this.scrollToBottom()
     },
     created() {
         if (this.chat.length === 0) {

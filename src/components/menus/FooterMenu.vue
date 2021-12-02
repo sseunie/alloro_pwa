@@ -4,7 +4,6 @@
     >
         <router-link to="/notifications">
             <i class="fas fa-bell"></i>
-            <!--<em v-if="inbox.notifications.length > 0" class="badge bg-highlight">{{ inbox.notifications.length }}</em>-->
         </router-link>
         <router-link to="/messages">
             <i class="fas fa-comment"></i>
@@ -19,15 +18,15 @@
 export default {
     name: "FooterMenu",
     computed: {
-        inbox() {
-            return this.$store.getters.inbox
+        chat() {
+            return this.$store.getters.chat
         },
         numberOfNewMessages() {
             const incidenceMessages = this.$store.getters.incidences.reduce((total, i) => total + (i.read ? 0 : 1), 0)
-            if (this.$store.getters.chat.read) {
+            if (this.chat.read || this.chat.length === 0) {
                 return incidenceMessages
             }
-            else return 0
+            else return incidenceMessages + 1
         }
     },
     methods: {
@@ -48,16 +47,9 @@ export default {
             const pathsWithoutHeader = ['Landing', 'Chat con la Residencia' , 'Mensajes de la incidencia']
             return !pathsWithoutHeader.includes(path)
         },
-        fetchInbox() {
-            this.$store.dispatch('getInbox').then(() => {
-                this.$store.dispatch('getUpdatedIncidences', this.$store.getters.inbox.incidences)
-            })
-        }
     },
     created() {
         this.connect()
-        //this.fetchInbox()
-        //setInterval(this.fetchInbox, 20000)
     }
 }
 </script>

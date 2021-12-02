@@ -82,7 +82,7 @@ export default {
             this.$router.push('/homepage');
             this.$store.dispatch('clearIncidences');
             this.$store.dispatch('clearAbsences');
-            this.$store.dispatch('clearInbox');
+            this.$store.dispatch('clearChat');
             this.$store.dispatch('clearUser');
         },
         disconnect(id) {

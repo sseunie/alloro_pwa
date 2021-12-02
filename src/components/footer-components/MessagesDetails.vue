@@ -67,17 +67,25 @@ export default {
             return this.$store.getters.incidence(this.$route.params.id)
         }
     },
+    watch: {
+        incidence() {
+            this.updateReadStatus()
+        }
+    },
     methods: {
         date(object) {
             return utils.formatDateTime(object.created_at)
         },
         updateReadStatus() {
-            if (!this.incidence.read)
+            if (this.incidence && !this.incidence.read)
             this.$store.dispatch('updateIncidenceReadStatus', this.incidence.id)
+        },
+        scrollToBottom() {
+            window.scrollTo(0,document.body.scrollHeight)
         }
     },
     mounted() {
-        window.scrollTo(0,document.body.scrollHeight)
+        this.scrollToBottom()
     },
     created() {
         if (this.incidence === undefined) {
