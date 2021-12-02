@@ -26,6 +26,7 @@ export default {
         },
         createReservation: ({commit}, data) => {
             for (let key in data.time) {
+                if (data.time[key] === 'default') continue
                 let formData = new FormData()
                 formData.append('userId', data.userId)
                 formData.append('type', data.type)

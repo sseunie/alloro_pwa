@@ -46,7 +46,7 @@ export default {
                     if (this.$store.getters.incidences.length === 0) {
                         this.$store.dispatch('getIncidences')
                     }
-                    if (this.$store.getters.length === 0) {
+                    if (this.$store.getters.chat.length === 0) {
                         this.$store.dispatch('getChat', localStorage.getItem('userid'))
                     }
 
