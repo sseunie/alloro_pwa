@@ -42,6 +42,14 @@ export default {
                 .then(r => {
                     localStorage.setItem('token', r.data.token);
                     localStorage.setItem('userid', r.data.id);
+
+                    if (this.$store.getters.incidences.length === 0) {
+                        this.$store.dispatch('getIncidences')
+                    }
+                    if (this.$store.getters.length === 0) {
+                        this.$store.dispatch('getChat', localStorage.getItem('userid'))
+                    }
+
                     if (this.$route.params.nextRoute === undefined) {
                         this.$router.push('/homepage');
                     } else {
