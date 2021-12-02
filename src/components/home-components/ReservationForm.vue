@@ -132,10 +132,7 @@ export default {
             }
         },
         validSelectedTime() {
-            for(let key in this.selectedTime) {
-                if (this.selectedTime[key] === 'default') return false
-            }
-            return true
+            return this.selectedTime.some(t => t !== 'default')
         },
         getHourList(string, duration, lastHour) {
             if (this.selectedRoom !== 'default') {

@@ -22,10 +22,6 @@
             >Iniciar sesión</button>
 
             <div class="divider mt-4 mb-3"></div>
-
-            <div class="w-50 font-11 pb-2 color-theme pb-3 mx-2">
-                <button class="color-highlight opacity-80 font-12">Recordar contraseña</button>
-            </div>
         </div>
     </div>
 </template>
